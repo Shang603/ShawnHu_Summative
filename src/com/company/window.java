@@ -17,8 +17,6 @@ public class window extends JFrame {
         setLayout(null);
         setUndecorated(true);
         add(wiz.icon);
-        seeing does errors push as well;
-
 
 
 
