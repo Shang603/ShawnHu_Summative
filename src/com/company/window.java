@@ -9,7 +9,7 @@ public class window extends JFrame {
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
     Wizard wiz = new Wizard();
-    String thefuck = "hi";
+    String nani = "hi";
 
     public window(){
 
