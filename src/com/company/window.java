@@ -9,17 +9,13 @@ public class window extends JFrame {
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
     Wizard wiz = new Wizard();
+    String dickhead = "hi";
 
     public window(){
 
         setSize(width,height);
         setLayout(null);
-        getContentPane().set
-       // setUndecorated(true);
-
-
-
-
+        setUndecorated(true);
         add(wiz.icon);
 
 
