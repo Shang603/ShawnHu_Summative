@@ -20,7 +20,7 @@ public class World extends JFrame {
 
         setSize(width, height);
         setLayout(null);
-            setUndecorated(true);
+        setUndecorated(true);
         setLocationRelativeTo(null);
 
 
@@ -32,7 +32,7 @@ public class World extends JFrame {
 
         addKeyBinding(this.getRootPane(), KeyEvent.VK_D, "dick", e -> {
 
-            wiz.icon.setLocation(wiz.icon.getLocation().x+);
+            wiz.icon.setLocation(wiz.icon.getLocation().x + 2, wiz.icon.getY());
 
         });
 
