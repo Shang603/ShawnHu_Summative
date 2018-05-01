@@ -14,14 +14,15 @@ public class World extends JFrame {
     JLabel background = new JLabel();
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
-    Wizard wiz = new Wizard();
+    Wizard wiz = new Wizard(getRootPane());
 
     public World() {
 
         setSize(width, height);
         setLayout(null);
-        setUndecorated(true);
+      //  setUndecorated(true);
         setLocationRelativeTo(null);
+        setDefaultCloseOperation(3);
 
 
         background.setIcon(imgRescaler(FJap, width, height));
@@ -30,11 +31,8 @@ public class World extends JFrame {
         add(wiz.icon);
         add(background);
 
-        addKeyBinding(this.getRootPane(), KeyEvent.VK_D, "dick", e -> {
 
-            wiz.icon.setLocation(wiz.icon.getLocation().x + 2, wiz.icon.getY());
 
-        });
 
     }
 
@@ -46,24 +44,7 @@ public class World extends JFrame {
 
     }
 
-    void addKeyBinding(JComponent comp, int KeyCode, String id, ActionListener actionListener) {
 
-        InputMap im = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
-        ActionMap ap = comp.getActionMap();
-
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), id);
-
-        ap.put(id, new AbstractAction() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                actionListener.actionPerformed(e);
-
-            }
-        });
-
-
-    }
 
 
 }

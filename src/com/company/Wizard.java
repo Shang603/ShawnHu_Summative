@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.event.KeyEvent;
 
 public class Wizard extends Player {
 
@@ -24,12 +25,32 @@ public class Wizard extends Player {
     JLabel dick = new JLabel();
 
 
-    Wizard() {
+    Wizard(JComponent RootPane) {
 
         setWiz();
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0,0,RNormWizStat.getIconWidth(),RNormWizStat.getIconHeight());
+
+        act(10,e->{
+
+            icon.setLocation(icon.getLocation().x + 2, icon.getY());
+
+        });
+
+        addKeyBindingP(RootPane, KeyEvent.VK_D, "MoveLeft", e -> {
+
+            movement.start();
+
+        },e->{
+
+            movement.stop();
+
+        });
+
+
+
+
 
     }
 
