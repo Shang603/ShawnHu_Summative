@@ -22,7 +22,6 @@ public class Wizard extends Player {
     ImageIcon LNormWizLight = new ImageIcon(getClass().getResource("L_Norm_Wiz_Lightning_v4.gif"));
 
     ImageIcon[][] allPic = new ImageIcon[4][6];
-    JLabel dick = new JLabel();
 
 
     Wizard(JComponent RootPane) {
@@ -30,9 +29,9 @@ public class Wizard extends Player {
         setWiz();
 
         icon.setIcon(RNormWizStat);
-        icon.setBounds(0,0,RNormWizStat.getIconWidth(),RNormWizStat.getIconHeight());
+        icon.setBounds(0, 0, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
-        act(10,e->{
+        act(10, e -> {
 
             icon.setLocation(icon.getLocation().x + 2, icon.getY());
 
@@ -42,14 +41,11 @@ public class Wizard extends Player {
 
             movement.start();
 
-        },e->{
+        }, e -> {
 
             movement.stop();
 
         });
-
-
-
 
 
     }

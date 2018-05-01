@@ -16,8 +16,6 @@ public class Player {
     Player() {
 
 
-
-
     }
 
     void setKeys() {
@@ -42,7 +40,7 @@ public class Player {
 
     }
 
-    void addKeyBindingP(JComponent comp, int KeyCode, String id, ActionListener actionListenerP,ActionListener actionListenerR) {
+    void addKeyBindingP(JComponent comp, int KeyCode, String id, ActionListener actionListenerP, ActionListener actionListenerR) {
 
         InputMap im = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap ap = comp.getActionMap();
@@ -78,9 +76,9 @@ public class Player {
 
     }
 
-    void act(int delay,ActionListener actionListener) {
+    void act(int delay, ActionListener actionListener) {
 
-        movement = new Timer(delay,e->{
+        movement = new Timer(delay, e -> {
 
             actionListener.actionPerformed(e);
 
