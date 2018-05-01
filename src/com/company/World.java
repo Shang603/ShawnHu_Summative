@@ -20,7 +20,7 @@ public class World extends JFrame {
 
         setSize(width, height);
         setLayout(null);
-        setUndecorated(true);
+            setUndecorated(true);
         setLocationRelativeTo(null);
 
 
@@ -30,9 +30,9 @@ public class World extends JFrame {
         add(wiz.icon);
         add(background);
 
-        addKeyBinding(this.getRootPane(), KeyEvent.VK_W, "dick", e -> {
+        addKeyBinding(this.getRootPane(), KeyEvent.VK_D, "dick", e -> {
 
-            System.out.println("Fred is a dick");
+            wiz.icon.setLocation(wiz.icon.getLocation().x+);
 
         });
 

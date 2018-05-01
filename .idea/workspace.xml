@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9aaa24-0238-4bcc-b483-b1f00ec2a0d7" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Robot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Spike.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Wizard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/window.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +26,8 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-end-line="35" />
+            <state relative-caret-position="173">
+              <caret line="22" column="31" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#imgRescaler#0;class#window#0" />
@@ -627,8 +616,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="34" column="49" lean-forward="true" selection-start-line="34" selection-end-line="35" />
+        <state relative-caret-position="173">
+          <caret line="22" column="31" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#imgRescaler#0;class#window#0" />
