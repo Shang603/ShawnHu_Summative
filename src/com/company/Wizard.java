@@ -72,7 +72,6 @@ public class Wizard extends Player {
 
             } else {
 
-                atTop= true;
                 icon.setLocation(icon.getX(), icon.getLocation().y + jumpHeight);
                 jumpHeight += jumpSpeed;
 
@@ -105,6 +104,12 @@ public class Wizard extends Player {
                 stopMoving();
                 reset(1, 4, allPic);
                 icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
+                stopTimer.stop();
+
+            }else if (whileBoolMove[1][5] && count == 50) {
+
+                stopMoving();
+                reset(1, 5, allPic);
                 stopTimer.stop();
 
             }

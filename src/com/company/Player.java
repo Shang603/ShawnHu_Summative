@@ -8,7 +8,6 @@ import java.util.Arrays;
 
 public class Player {
 
-    int[][] P1Keys = new int[2][6];
     int commonFloor = 45;
 
     boolean atTop = false;
@@ -31,23 +30,9 @@ public class Player {
 
     Player() {
 
-        setUp();
+        stopMoving();
    //     icon.setOpaque(true);
 
-    }
-
-    void setUp() {
-
-        P1Keys[0][0] = KeyEvent.VK_Q;
-        P1Keys[0][1] = KeyEvent.VK_W;
-        P1Keys[1][2] = KeyEvent.VK_D;
-        P1Keys[1][0] = KeyEvent.VK_A;
-        P1Keys[0][3] = KeyEvent.VK_U;
-        P1Keys[1][3] = KeyEvent.VK_J;
-        P1Keys[1][4] = KeyEvent.VK_K;
-        P1Keys[1][5] = KeyEvent.VK_L;
-
-        stopMoving();
     }
 
     //sets all the keybinders for player 1
@@ -127,6 +112,19 @@ public class Player {
                 icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
                 set(1, 4, allPic);
                 whileBoolMove[1][4] = true;
+                stopTimer.start();
+
+            }
+
+        });
+
+        //sets the movement shoot
+        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
+
+            if (!isAttacking()) {
+
+                set(1, 5, allPic);
+                whileBoolMove[1][5] = true;
                 stopTimer.start();
 
             }
