@@ -27,31 +27,52 @@ public class Wizard extends Player {
     Wizard(JComponent RootPane) {
 
         setWiz();
+        setMoveSpeed(10);
 
         icon.setIcon(RNormWizStat);
-        icon.setBounds(0, 0, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
+        icon.setBounds(0, World.height - RNormWizStat.getIconHeight(), RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
-        act(10, e -> {
+        //method for what to do in timer from super class
+        moveAct(10, e -> {
 
-            icon.setLocation(icon.getLocation().x + 2, icon.getY());
+        //in charge of changing the animation of the players
+            for (int i = 0; i < 2; i++) {
+
+                for (int j = 0; j < 6; j++) {
+
+                    if (allBoolMove[i][j]) {
+
+                        icon.setIcon(allPic[i][j]);
+
+                    }
+
+                }
+
+            }
+
+            //if pressed D
+            if (allBoolMove[1][2]) {
+
+                //move right
+                moveHorizon(moveSpeed);
+
+            }
+
+
 
         });
 
-        addKeyBindingP(RootPane, KeyEvent.VK_D, "MoveLeft", e -> {
+        setKeyBindingP1(RootPane,allPic);
 
-            movement.start();
 
-        }, e -> {
-
-            movement.stop();
-
-        });
-
+        movement.start();
 
     }
 
+    //setup pics
     void setWiz() {
 
+        //setting pics
         allPic[0][0] = RNormWizStat;
         allPic[0][1] = RNormWizJump;
         allPic[1][0] = LNormWizWalk;
@@ -69,6 +90,20 @@ public class Wizard extends Player {
         allPic[3][3] = LNormWizPunch;
         allPic[3][4] = LNormWizSpin;
         allPic[3][5] = LNormWizShot;
+
+    }
+
+    //sets the movement speed
+    void setMoveSpeed(int s) {
+
+        moveSpeed = s;
+
+    }
+
+    //makes wizard move horizontally
+    void moveHorizon(int m) {
+
+            icon.setLocation(icon.getLocation().x + m, icon.getY());
 
     }
 

@@ -14,13 +14,13 @@ public class World extends JFrame {
     JLabel background = new JLabel();
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
-    Wizard wiz = new Wizard(getRootPane());
+    Player wiz = new Wizard(getRootPane());
 
     public World() {
 
         setSize(width, height);
         setLayout(null);
-      //  setUndecorated(true);
+        setUndecorated(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(3);
 
