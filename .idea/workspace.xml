@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9aaa24-0238-4bcc-b483-b1f00ec2a0d7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Player$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Summative/com/company/Player$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Player$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Summative/com/company/Player$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Player$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Summative/com/company/Player$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Summative/com/company/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Summative/com/company/Wizard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Summative/com/company/Wizard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
@@ -33,7 +30,7 @@
       <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
+            <state relative-caret-position="374">
               <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -60,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
-              <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
+            <state relative-caret-position="188">
+              <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -72,17 +69,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="233">
+              <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#setUp#0;class#Player#0" />
                 <element signature="method#addKeyBinder#0;class#Player#0" />
                 <element signature="method#addKeyBinder#1;class#Player#0" />
-                <element signature="method#moveAct#0;class#Player#0" />
                 <element signature="method#reset#0;class#Player#0" />
               </folding>
             </state>
@@ -97,6 +93,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>P1.</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,7 +124,12 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="AndroidView" />
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../hackathon_hospital" />
@@ -198,7 +204,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32686567" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32686567" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Floobits" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -286,7 +292,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -336,7 +341,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -379,7 +383,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -450,7 +453,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -500,7 +502,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -550,7 +551,6 @@
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
           </folding>
         </state>
@@ -585,9 +585,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="46" column="2" lean-forward="true" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
+        <state relative-caret-position="374">
           <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -609,34 +616,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home/lib/src.zip!/java.desktop/java/awt/event/ActionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="46" column="2" lean-forward="true" selection-start-line="46" selection-start-column="2" selection-end-line="46" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="91" lean-forward="true" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="233">
+          <caret line="148" column="36" selection-start-line="148" selection-start-column="36" selection-end-line="148" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setUp#0;class#Player#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
             <element signature="method#reset#0;class#Player#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="61" column="26" lean-forward="true" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

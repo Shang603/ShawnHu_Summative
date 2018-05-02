@@ -7,9 +7,6 @@ import java.awt.event.KeyEvent;
 
 public class Player {
 
-    int[][] P1Keys = new int[2][6];
-    int[][] P2Keys = new int[2][6];
-
     int commonFloor = 30;
 
     boolean[][] allBoolMove = new boolean[2][6];
@@ -18,8 +15,11 @@ public class Player {
     JLabel icon = new JLabel();
 
     Timer movement;
+    Timer jump;
+    Timer stop;
 
     int moveSpeed;
+    int intiJump = 20;
 
 
     Player() {
@@ -56,7 +56,7 @@ public class Player {
         //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
 
-            set(1,2,allPic);
+            set(1, 2, allPic);
 
 
         }, e -> {
@@ -68,7 +68,7 @@ public class Player {
         //sets the movement left
         addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
 
-            set(1,0,allPic);
+            set(1, 0, allPic);
 
         }, e -> {
 
@@ -80,7 +80,8 @@ public class Player {
         //sets the movement up
         addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
 
-            set(0,1,allPic);
+            set(0, 1, allPic);
+            jump.start();
 
         }, e -> {
 
@@ -142,6 +143,26 @@ public class Player {
             actionListener.actionPerformed(e);
 
         });
+    }
+
+    void jumpAct(int delay, ActionListener actionListener) {
+
+        jump = new Timer(delay, e -> {
+
+            actionListener.actionPerformed(e);
+
+        });
+
+    }
+
+    void stopAct(int delay, ActionListener actionListener) {
+
+        stop = new Timer(delay, e -> {
+
+            actionListener.actionPerformed(e);
+
+        });
+
     }
 
     void reset(int w, int h, ImageIcon[][] allPic) {

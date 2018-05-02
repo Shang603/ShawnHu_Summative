@@ -23,16 +23,18 @@ public class Wizard extends Player {
 
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
+    boolean j = false;
+
 
     Wizard(JComponent RootPane) {
 
         setWiz();
-        setMoveSpeed(10);
+        setMoveSpeed(8);
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
-        //method for what to do in timer from super class
+        //method for what to do in move timer from super class
         moveAct(10, e -> {
 
 //            //in charge of changing the animation of the players
@@ -58,18 +60,52 @@ public class Wizard extends Player {
             }
 
             //if pressed D
-            if (allBoolMove[1][2] ) {
+            if (allBoolMove[1][2]) {
 
                 //move right
                 moveHorizon(moveSpeed);
+                //     set(1,2,allPic);
 
             }
 
             //if press A
-            if (allBoolMove[1][0] ) {
+            if (allBoolMove[1][0]) {
 
                 //move left
                 moveHorizon(-moveSpeed);
+                //   set(1,0,allPic);
+
+            }
+
+
+        });
+
+        //method for what to do in jump timer from super class
+        jumpAct(20, e -> {
+
+            if (intiJump == 0){
+
+                j= true;
+
+            }
+
+            if (!j) {
+
+                icon.setLocation(icon.getX(), icon.getLocation().y - intiJump);
+                --intiJump;
+
+            } else {
+
+                icon.setLocation(icon.getX(), icon.getLocation().y + intiJump);
+                ++intiJump;
+
+            }
+
+            if (icon.getLocation().y == World.height - RNormWizStat.getIconHeight() - commonFloor) {
+
+                j = false;
+                intiJump = 20;
+                jump.stop();
 
             }
 
@@ -77,8 +113,8 @@ public class Wizard extends Player {
 
         });
 
-        setKeyBindingP1(RootPane, allPic);
 
+        setKeyBindingP1(RootPane, allPic);
 
         movement.start();
 
@@ -114,6 +150,7 @@ public class Wizard extends Player {
         moveSpeed = s;
 
     }
+
 
     //makes wizard move horizontally
     void moveHorizon(int m) {
