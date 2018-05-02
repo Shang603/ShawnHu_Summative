@@ -10,6 +10,8 @@ public class Player {
     int[][] P1Keys = new int[2][6];
     int[][] P2Keys = new int[2][6];
 
+    int commonFloor = 30;
+
     boolean[][] allBoolMove = new boolean[2][6];
 
 
@@ -27,24 +29,6 @@ public class Player {
     }
 
     void setUp() {
-
-        P1Keys[0][0] = KeyEvent.VK_Q;
-        P1Keys[0][1] = KeyEvent.VK_W;
-        P1Keys[1][2] = KeyEvent.VK_D;
-        P1Keys[1][0] = KeyEvent.VK_A;
-        P1Keys[0][3] = KeyEvent.VK_U;
-        P1Keys[1][3] = KeyEvent.VK_J;
-        P1Keys[1][4] = KeyEvent.VK_K;
-        P1Keys[1][5] = KeyEvent.VK_L;
-
-        P2Keys[0][0] = KeyEvent.VK_DOWN;
-        P2Keys[0][1] = KeyEvent.VK_UP;
-        P2Keys[1][2] = KeyEvent.VK_RIGHT;
-        P2Keys[1][0] = KeyEvent.VK_LEFT;
-        P2Keys[0][3] = KeyEvent.VK_4;
-        P2Keys[1][3] = KeyEvent.VK_1;
-        P2Keys[1][4] = KeyEvent.VK_2;
-        P2Keys[1][5] = KeyEvent.VK_3;
 
         //boolean for recording which button is pressed
         for (boolean[] x : allBoolMove) {
@@ -69,15 +53,39 @@ public class Player {
 
         });
 
-        //sets the movement right using keybinding
+        //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
 
-            allBoolMove[1][2] = true;
+            set(1,2,allPic);
+
 
         }, e -> {
 
-            allBoolMove[1][2] = false;
-            icon.setIcon(allPic[0][0]);
+            reset(1, 2, allPic);
+
+        });
+
+        //sets the movement left
+        addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
+
+            set(1,0,allPic);
+
+        }, e -> {
+
+            reset(1, 0, allPic);
+
+
+        });
+
+        //sets the movement up
+        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
+
+            set(0,1,allPic);
+
+        }, e -> {
+
+            reset(0, 1, allPic);
+
 
         });
 
@@ -134,6 +142,22 @@ public class Player {
             actionListener.actionPerformed(e);
 
         });
+    }
+
+    void reset(int w, int h, ImageIcon[][] allPic) {
+
+        allBoolMove[w][h] = false;
+        icon.setIcon(allPic[0][0]);
+
+
+    }
+
+    void set(int w, int h, ImageIcon[][] allPic) {
+
+        allBoolMove[w][h] = true;
+        icon.setIcon(allPic[w][h]);
+
+
     }
 
 

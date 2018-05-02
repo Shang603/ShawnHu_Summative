@@ -30,31 +30,46 @@ public class Wizard extends Player {
         setMoveSpeed(10);
 
         icon.setIcon(RNormWizStat);
-        icon.setBounds(0, World.height - RNormWizStat.getIconHeight(), RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
+        icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
         //method for what to do in timer from super class
         moveAct(10, e -> {
 
-        //in charge of changing the animation of the players
-            for (int i = 0; i < 2; i++) {
+//            //in charge of changing the animation of the players
+//            for (int i = 0; i < 2; i++) {
+//
+//                for (int j = 0; j < 6; j++) {
+//
+//                    if (allBoolMove[i][j]) {
+//
+//                        icon.setIcon(allPic[i][j]);
+//
+//                    }
+//
+//                }
+//
+//            }
 
-                for (int j = 0; j < 6; j++) {
+            //if both A and D are pressed, the image icon changes to stat
+            if (allBoolMove[1][2] && allBoolMove[1][0]) {
 
-                    if (allBoolMove[i][j]) {
-
-                        icon.setIcon(allPic[i][j]);
-
-                    }
-
-                }
+                icon.setIcon(allPic[0][0]);
 
             }
 
             //if pressed D
-            if (allBoolMove[1][2]) {
+            if (allBoolMove[1][2] ) {
 
                 //move right
                 moveHorizon(moveSpeed);
+
+            }
+
+            //if press A
+            if (allBoolMove[1][0] ) {
+
+                //move left
+                moveHorizon(-moveSpeed);
 
             }
 
@@ -62,7 +77,7 @@ public class Wizard extends Player {
 
         });
 
-        setKeyBindingP1(RootPane,allPic);
+        setKeyBindingP1(RootPane, allPic);
 
 
         movement.start();
@@ -103,7 +118,7 @@ public class Wizard extends Player {
     //makes wizard move horizontally
     void moveHorizon(int m) {
 
-            icon.setLocation(icon.getLocation().x + m, icon.getY());
+        icon.setLocation(icon.getLocation().x + m, icon.getY());
 
     }
 
