@@ -63,14 +63,14 @@ public class Player {
     void setKeyBindingP1(JComponent RootPane, ImageIcon[][] allPic) {
 
         //TODO: make the exit button into gui, not escape
-        addKeyBinding(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
 
             System.exit(0);
 
         });
 
         //sets the movement right using keybinding
-        addKeyBinding(RootPane, KeyEvent.VK_D, "MoveLeft", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
 
             allBoolMove[1][2] = true;
 
@@ -84,14 +84,14 @@ public class Player {
 
     }
 
-    void addKeyBinding(JComponent comp, int KeyCode, String id, ActionListener actionListener) {
+    void addKeyBinder(JComponent comp, int KeyCode, String id, ActionListener actionListener) {
 
         InputMap im = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap ap = comp.getActionMap();
 
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "pressed once");
+        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "Pressed Once " + id);
 
-        ap.put("pressed once", new AbstractAction() {
+        ap.put("Pressed Once " + id, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListener.actionPerformed(e);
@@ -101,23 +101,23 @@ public class Player {
 
     }
 
-    void addKeyBinding(JComponent comp, int KeyCode, String id, ActionListener actionListenerP, ActionListener actionListenerR) {
+    void addKeyBinder(JComponent comp, int KeyCode, String id, ActionListener actionListenerP, ActionListener actionListenerR) {
 
         InputMap im = comp.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap ap = comp.getActionMap();
 
 
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "pressed");
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, true), "released");
+        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "Pressed " + KeyCode);
+        im.put(KeyStroke.getKeyStroke(KeyCode, 0, true), "Released " + KeyCode);
 
-        ap.put("pressed", new AbstractAction() {
+        ap.put("Pressed " + KeyCode, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListenerP.actionPerformed(e);
             }
         });
 
-        ap.put("released", new AbstractAction() {
+        ap.put("Released " + KeyCode, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListenerR.actionPerformed(e);
