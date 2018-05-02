@@ -83,9 +83,9 @@ public class Wizard extends Player {
         //method for what to do in jump timer from super class
         jumpAct(20, e -> {
 
-            if (intiJump == 0){
+            if (intiJump == 0) {
 
-                j= true;
+                j = true;
 
             }
 
@@ -110,6 +110,18 @@ public class Wizard extends Player {
             }
 
 
+        });
+
+        stopAct(10, e -> {
+
+            if (count == 8) {
+
+                reset(0, 0, allPic);
+
+            }
+
+            ++count;
+
 
         });
 
@@ -117,6 +129,8 @@ public class Wizard extends Player {
         setKeyBindingP1(RootPane, allPic);
 
         movement.start();
+
+        stop.start();
 
     }
 

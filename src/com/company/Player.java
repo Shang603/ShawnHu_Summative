@@ -20,6 +20,7 @@ public class Player {
 
     int moveSpeed;
     int intiJump = 20;
+    int count = 0;
 
 
     Player() {
