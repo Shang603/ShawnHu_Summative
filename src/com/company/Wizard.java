@@ -23,7 +23,6 @@ public class Wizard extends Player {
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
 
-
     Wizard(JComponent RootPane) {
 
         setWiz();
@@ -77,7 +76,7 @@ public class Wizard extends Player {
 
             }
 
-            if (icon.getLocation().y + icon.getHeight() >= World.height - commonFloor) {
+            if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
 
                 System.out.println(icon.getY());
                 atTop = false;
@@ -106,10 +105,17 @@ public class Wizard extends Player {
                 icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
                 stopTimer.stop();
 
-            }else if (whileBoolMove[1][5] && count == 50) {
+            } else if (whileBoolMove[1][5] && count == 50) {
 
                 stopMoving();
                 reset(1, 5, allPic);
+                stopTimer.stop();
+
+            } else if (whileBoolMove[0][3] && count == 30) {
+
+                stopMoving();
+                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor);
+                reset(0, 3, allPic);
                 stopTimer.stop();
 
             }

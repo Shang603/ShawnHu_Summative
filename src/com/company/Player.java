@@ -26,6 +26,7 @@ public class Player {
     int moveSpeed;
     int count = 0;
     int spinDown = 80;
+    int lightUp = 600;
 
 
     Player() {
@@ -86,8 +87,12 @@ public class Player {
         //sets the movement up
         addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
 
-            set(0, 1, allPic);
-            jumpTimer.start();
+            if (!isAttacking()) {
+
+                set(0, 1, allPic);
+                jumpTimer.start();
+
+            }
 
         });
 
@@ -125,6 +130,20 @@ public class Player {
 
                 set(1, 5, allPic);
                 whileBoolMove[1][5] = true;
+                stopTimer.start();
+
+            }
+
+        });
+
+        //sets the movement shoot
+        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
+
+            if (!isAttacking() && !isJumping()) {
+
+                set(0, 3, allPic);
+                icon.setLocation(icon.getLocation().x, icon.getY() - lightUp);
+                whileBoolMove[0][3] = true;
                 stopTimer.start();
 
             }
@@ -327,6 +346,12 @@ public class Player {
         }
 
         return false;
+
+    }
+
+    boolean isJumping(){
+
+        return allBoolMove[0][1];
 
     }
 
