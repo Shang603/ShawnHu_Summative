@@ -36,8 +36,10 @@ public class World extends JFrame {
 
     }
 
+    //resized images to correct size
     ImageIcon imgRescaler(ImageIcon img, int w, int h) {
 
+        //complete magic here
         Image tempImg = img.getImage();
         ImageIcon tempFinal = new ImageIcon(tempImg.getScaledInstance(w, h, Image.SCALE_DEFAULT));
         return tempFinal;
