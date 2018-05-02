@@ -8,8 +8,10 @@ import java.util.Arrays;
 
 public class Player {
 
+    int[][] P1Keys = new int[2][6];
     int commonFloor = 45;
 
+    boolean atTop = false;
     boolean[][] allBoolMove = new boolean[2][6];
     boolean[][] whileBoolMove = new boolean[2][6];
 
@@ -24,41 +26,31 @@ public class Player {
     int jumpSpeed = 3;
     int moveSpeed;
     int count = 0;
+    int spinDown = 80;
 
 
     Player() {
 
         setUp();
+   //     icon.setOpaque(true);
 
     }
 
     void setUp() {
 
-        //boolean for recording which button is pressed
-        for (boolean[] x : allBoolMove) {
+        P1Keys[0][0] = KeyEvent.VK_Q;
+        P1Keys[0][1] = KeyEvent.VK_W;
+        P1Keys[1][2] = KeyEvent.VK_D;
+        P1Keys[1][0] = KeyEvent.VK_A;
+        P1Keys[0][3] = KeyEvent.VK_U;
+        P1Keys[1][3] = KeyEvent.VK_J;
+        P1Keys[1][4] = KeyEvent.VK_K;
+        P1Keys[1][5] = KeyEvent.VK_L;
 
-            for (boolean a : x) {
-
-                a = false;
-
-            }
-
-        }
-
-        //boolean for recording which action is performed
-        for (boolean[] x : whileBoolMove) {
-
-            for (boolean a : x) {
-
-                a = false;
-
-            }
-
-        }
-
+        stopMoving();
     }
 
-    //sets all the keybinding for player 1
+    //sets all the keybinders for player 1
     void setKeyBindingP1(JComponent RootPane, ImageIcon[][] allPic) {
 
         //TODO: make the exit button into gui, not escape
@@ -70,24 +62,38 @@ public class Player {
 
         //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
+            if (!whileBoolMove[1][4]) {
 
-            set(1, 2, allPic);
+                set(1, 2, allPic);
+
+            }
 
 
         }, e -> {
 
-            reset(1, 2, allPic);
+            if (!whileBoolMove[1][4]) {
+
+                reset(1, 2, allPic);
+
+            }
 
         });
 
         //sets the movement left
         addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
+            if (!whileBoolMove[1][4]) {
 
-            set(1, 0, allPic);
+                set(1, 0, allPic);
+
+            }
 
         }, e -> {
 
-            reset(1, 0, allPic);
+            if (!whileBoolMove[1][4]) {
+
+                reset(1, 0, allPic);
+
+            }
 
 
         });
@@ -103,18 +109,27 @@ public class Player {
         //sets the movement hit
         addKeyBinder(RootPane, KeyEvent.VK_J, "Hit", e -> {
 
-            set(1, 3, allPic);
-            whileBoolMove[1][3] = true;
-            stopTimer.start();
+            if (!isAttacking()) {
+
+                set(1, 3, allPic);
+                whileBoolMove[1][3] = true;
+                stopTimer.start();
+
+            }
 
         });
 
         //sets the movement kick
         addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
 
-            set(1, 3, allPic);
-            whileBoolMove[1][3] = true;
-            stopTimer.start();
+            if (!isAttacking() && !atTop) {
+
+                icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
+                set(1, 4, allPic);
+                whileBoolMove[1][4] = true;
+                stopTimer.start();
+
+            }
 
         });
 
@@ -196,11 +211,28 @@ public class Player {
     void reset(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = false;
+        whileBoolMove[w][h] = false;
+        count = 0;
 
-
-        if (!Arrays.asList(allBoolMove).contains(true)) {
+        if (isAllBoolFalse(allBoolMove)) {
 
             icon.setIcon(allPic[0][0]);
+            icon.setSize(allPic[0][0].getIconWidth(), allPic[0][0].getIconHeight());
+
+        }
+
+        for (int i = 0; i < 2; i++) {
+
+            for (int j = 0; j < 6; j++) {
+
+                if (allBoolMove[i][j]) {
+
+                    icon.setIcon(allPic[i][j]);
+                    icon.setSize(allPic[i][j].getIconWidth(), allPic[i][j].getIconHeight());
+
+                }
+
+            }
 
         }
 
@@ -210,11 +242,97 @@ public class Player {
     void set(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = true;
-        icon.setSize(allPic[w][h].getIconWidth(),allPic[w][h].getIconHeight());
+        icon.setSize(allPic[w][h].getIconWidth(), allPic[w][h].getIconHeight());
         icon.setIcon(allPic[w][h]);
 
 
     }
+
+    void setLocGround(ImageIcon allPic[][]) {
+
+        icon.setLocation(icon.getX(), World.height - allPic[0][0].getIconHeight() - commonFloor);
+
+    }
+
+    void stopMoving(){
+
+        //boolean for recording which button is pressed
+        for (int i = 0; i < 2; i++) {
+
+            for (int j = 0; j < 6; j++) {
+
+                allBoolMove[i][j] = false;
+
+            }
+
+        }
+
+        //boolean for recording which action is performed
+        for (int i = 0; i < 2; i++) {
+
+            for (int j = 0; j < 6; j++) {
+
+                whileBoolMove[i][j] = false;
+
+            }
+
+        }
+
+
+
+    }
+
+    boolean isAllBoolFalse(boolean[][] t) {
+
+        for (boolean[] a : t) {
+
+            for (boolean x : a) {
+
+                if (x) {
+
+                    return false;
+
+                }
+
+            }
+
+        }
+
+        return true;
+
+    }
+
+    boolean isAttacking() {
+
+        if (whileBoolMove[0][3]) {
+
+            return true;
+
+        }
+
+        if (whileBoolMove[1][3]) {
+
+            return true;
+
+        }
+
+        if (whileBoolMove[1][4]) {
+
+            return true;
+
+        }
+
+        if (whileBoolMove[1][5]) {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+
 
 
 }

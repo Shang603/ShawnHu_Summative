@@ -1,7 +1,6 @@
 package com.company;
 
 import javax.swing.*;
-import java.util.Arrays;
 
 public class Wizard extends Player {
 
@@ -23,7 +22,6 @@ public class Wizard extends Player {
 
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
-    boolean j = false;
 
 
     Wizard(JComponent RootPane) {
@@ -36,28 +34,6 @@ public class Wizard extends Player {
 
         //method for what to do in move timer from super class
         moveAct(10, e -> {
-
-//            //in charge of changing the animation of the players
-//            for (int i = 0; i < 2; i++) {
-//
-//                for (int j = 0; j < 6; j++) {
-//
-//                    if (allBoolMove[i][j]) {
-//
-//                        icon.setIcon(allPic[i][j]);
-//
-//                    }
-//
-//                }
-//
-//            }
-
-            //if both A and D are pressed, the image icon changes to stat
-            if (allBoolMove[1][2] && allBoolMove[1][0]) {
-
-                icon.setIcon(allPic[0][0]);
-
-            }
 
             //if pressed D
             if (allBoolMove[1][2]) {
@@ -85,26 +61,29 @@ public class Wizard extends Player {
 
             if (jumpHeight == 0) {
 
-                j = true;
+                atTop = true;
 
             }
 
-            if (!j) {
+            if (!atTop) {
 
                 icon.setLocation(icon.getX(), icon.getLocation().y - jumpHeight);
                 jumpHeight -= jumpSpeed;
 
             } else {
 
+                atTop= true;
                 icon.setLocation(icon.getX(), icon.getLocation().y + jumpHeight);
                 jumpHeight += jumpSpeed;
 
             }
 
-            if (icon.getLocation().y == World.height - RNormWizStat.getIconHeight() - commonFloor) {
+            if (icon.getLocation().y + icon.getHeight() >= World.height - commonFloor) {
 
-                icon.setIcon(allPic[0][0]);
-                j = false;
+                System.out.println(icon.getY());
+                atTop = false;
+                reset(0, 1, allPic);
+                setLocGround(allPic);
                 jumpHeight = 33;
                 jumpTimer.stop();
 
@@ -117,7 +96,15 @@ public class Wizard extends Player {
 
             if (whileBoolMove[1][3] && count == 18) {
 
-                reset(0, 0, allPic);
+                stopMoving();
+                reset(1, 3, allPic);
+                stopTimer.stop();
+
+            } else if (whileBoolMove[1][4] && count == 18) {
+
+                stopMoving();
+                reset(1, 4, allPic);
+                icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
                 stopTimer.stop();
 
             }
@@ -172,21 +159,6 @@ public class Wizard extends Player {
     }
 
     //overloaded method for resetting animation and movements once keys are let go
-    void reset(int w, int h, ImageIcon[][] allPic) {
-
-        allBoolMove[w][h] = false;
-        whileBoolMove[w][h] = false;
-        count = 0;
-
-        if (!Arrays.asList(allBoolMove).contains(true)) {
-
-            icon.setIcon(allPic[0][0]);
-
-        }
-
-
-    }
-
 
 
 }
