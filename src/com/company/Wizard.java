@@ -1,7 +1,6 @@
 package com.company;
 
 import javax.swing.*;
-import java.awt.event.KeyEvent;
 
 public class Wizard extends Player {
 
@@ -83,7 +82,7 @@ public class Wizard extends Player {
         //method for what to do in jump timer from super class
         jumpAct(20, e -> {
 
-            if (intiJump == 0) {
+            if (jumpHeight == 0) {
 
                 j = true;
 
@@ -91,20 +90,21 @@ public class Wizard extends Player {
 
             if (!j) {
 
-                icon.setLocation(icon.getX(), icon.getLocation().y - intiJump);
-                --intiJump;
+                icon.setLocation(icon.getX(), icon.getLocation().y - jumpHeight);
+                jumpHeight -= jumpSpeed;
 
             } else {
 
-                icon.setLocation(icon.getX(), icon.getLocation().y + intiJump);
-                ++intiJump;
+                icon.setLocation(icon.getX(), icon.getLocation().y + jumpHeight);
+                jumpHeight += jumpSpeed;
 
             }
 
             if (icon.getLocation().y == World.height - RNormWizStat.getIconHeight() - commonFloor) {
 
+                icon.setIcon(allPic[0][0]);
                 j = false;
-                intiJump = 20;
+                jumpHeight = 33;
                 jump.stop();
 
             }
@@ -114,13 +114,7 @@ public class Wizard extends Player {
 
         stopAct(10, e -> {
 
-            if (count == 8) {
 
-                reset(0, 0, allPic);
-
-            }
-
-            ++count;
 
 
         });

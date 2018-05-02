@@ -4,10 +4,12 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class Player {
 
-    int commonFloor = 30;
+    int commonFloor = 45;
 
     boolean[][] allBoolMove = new boolean[2][6];
 
@@ -18,8 +20,9 @@ public class Player {
     Timer jump;
     Timer stop;
 
+    int jumpHeight = 33;
+    int jumpSpeed = 3;
     int moveSpeed;
-    int intiJump = 20;
     int count = 0;
 
 
@@ -84,10 +87,13 @@ public class Player {
             set(0, 1, allPic);
             jump.start();
 
-        }, e -> {
+        });
 
-            reset(0, 1, allPic);
+        //sets the movement up
+        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
 
+            set(0, 1, allPic);
+            jump.start();
 
         });
 
@@ -117,17 +123,17 @@ public class Player {
         ActionMap ap = comp.getActionMap();
 
 
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "Pressed " + KeyCode);
-        im.put(KeyStroke.getKeyStroke(KeyCode, 0, true), "Released " + KeyCode);
+        im.put(KeyStroke.getKeyStroke(KeyCode, 0, false), "Pressed " + id);
+        im.put(KeyStroke.getKeyStroke(KeyCode, 0, true), "Released " + id);
 
-        ap.put("Pressed " + KeyCode, new AbstractAction() {
+        ap.put("Pressed " + id, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListenerP.actionPerformed(e);
             }
         });
 
-        ap.put("Released " + KeyCode, new AbstractAction() {
+        ap.put("Released " + id, new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 actionListenerR.actionPerformed(e);
@@ -169,7 +175,13 @@ public class Player {
     void reset(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = false;
-        icon.setIcon(allPic[0][0]);
+
+
+        if (!Arrays.asList(allBoolMove).contains(true)) {
+
+            icon.setIcon(allPic[0][0]);
+
+        }
 
 
     }
