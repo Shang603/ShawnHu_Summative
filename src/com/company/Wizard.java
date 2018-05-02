@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.util.Arrays;
 
 public class Wizard extends Player {
 
@@ -79,7 +80,7 @@ public class Wizard extends Player {
 
         });
 
-        //method for what to do in jump timer from super class
+        //method for what to do in jumpTimer timer from super class
         jumpAct(20, e -> {
 
             if (jumpHeight == 0) {
@@ -105,7 +106,7 @@ public class Wizard extends Player {
                 icon.setIcon(allPic[0][0]);
                 j = false;
                 jumpHeight = 33;
-                jump.stop();
+                jumpTimer.stop();
 
             }
 
@@ -114,17 +115,21 @@ public class Wizard extends Player {
 
         stopAct(10, e -> {
 
+            if (whileBoolMove[1][3] && count == 18) {
 
+                reset(0, 0, allPic);
+                stopTimer.stop();
 
+            }
+
+            count++;
 
         });
 
 
         setKeyBindingP1(RootPane, allPic);
 
-        movement.start();
-
-        stop.start();
+        movementTimer.start();
 
     }
 
@@ -152,13 +157,12 @@ public class Wizard extends Player {
 
     }
 
-    //sets the movement speed
+    //sets the movementTimer speed
     void setMoveSpeed(int s) {
 
         moveSpeed = s;
 
     }
-
 
     //makes wizard move horizontally
     void moveHorizon(int m) {
@@ -166,6 +170,23 @@ public class Wizard extends Player {
         icon.setLocation(icon.getLocation().x + m, icon.getY());
 
     }
+
+    //overloaded method for resetting animation and movements once keys are let go
+    void reset(int w, int h, ImageIcon[][] allPic) {
+
+        allBoolMove[w][h] = false;
+        whileBoolMove[w][h] = false;
+        count = 0;
+
+        if (!Arrays.asList(allBoolMove).contains(true)) {
+
+            icon.setIcon(allPic[0][0]);
+
+        }
+
+
+    }
+
 
 
 }

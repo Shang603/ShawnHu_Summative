@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Player {
@@ -12,13 +11,14 @@ public class Player {
     int commonFloor = 45;
 
     boolean[][] allBoolMove = new boolean[2][6];
+    boolean[][] whileBoolMove = new boolean[2][6];
 
 
     JLabel icon = new JLabel();
 
-    Timer movement;
-    Timer jump;
-    Timer stop;
+    Timer movementTimer;
+    Timer jumpTimer;
+    Timer stopTimer;
 
     int jumpHeight = 33;
     int jumpSpeed = 3;
@@ -36,6 +36,17 @@ public class Player {
 
         //boolean for recording which button is pressed
         for (boolean[] x : allBoolMove) {
+
+            for (boolean a : x) {
+
+                a = false;
+
+            }
+
+        }
+
+        //boolean for recording which action is performed
+        for (boolean[] x : whileBoolMove) {
 
             for (boolean a : x) {
 
@@ -85,15 +96,25 @@ public class Player {
         addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
 
             set(0, 1, allPic);
-            jump.start();
+            jumpTimer.start();
 
         });
 
-        //sets the movement up
-        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
+        //sets the movement hit
+        addKeyBinder(RootPane, KeyEvent.VK_J, "Hit", e -> {
 
-            set(0, 1, allPic);
-            jump.start();
+            set(1, 3, allPic);
+            whileBoolMove[1][3] = true;
+            stopTimer.start();
+
+        });
+
+        //sets the movement kick
+        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
+
+            set(1, 3, allPic);
+            whileBoolMove[1][3] = true;
+            stopTimer.start();
 
         });
 
@@ -145,7 +166,7 @@ public class Player {
 
     void moveAct(int delay, ActionListener actionListener) {
 
-        movement = new Timer(delay, e -> {
+        movementTimer = new Timer(delay, e -> {
 
             actionListener.actionPerformed(e);
 
@@ -154,7 +175,7 @@ public class Player {
 
     void jumpAct(int delay, ActionListener actionListener) {
 
-        jump = new Timer(delay, e -> {
+        jumpTimer = new Timer(delay, e -> {
 
             actionListener.actionPerformed(e);
 
@@ -164,7 +185,7 @@ public class Player {
 
     void stopAct(int delay, ActionListener actionListener) {
 
-        stop = new Timer(delay, e -> {
+        stopTimer = new Timer(delay, e -> {
 
             actionListener.actionPerformed(e);
 
@@ -189,6 +210,7 @@ public class Player {
     void set(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = true;
+        icon.setSize(allPic[w][h].getIconWidth(),allPic[w][h].getIconHeight());
         icon.setIcon(allPic[w][h]);
 
 
