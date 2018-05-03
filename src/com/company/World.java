@@ -10,6 +10,7 @@ public class World extends JFrame {
     static int height = 700;
 
     JLabel background = new JLabel();
+    Projectile shot = new Projectile();
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
     Player wiz = new Wizard(getRootPane(), 1);
@@ -23,8 +24,10 @@ public class World extends JFrame {
         setDefaultCloseOperation(3);
 
 
+        add(shot);
         background.setIcon(imgRescaler(FJap, width, height));
         background.setBounds(0, 0, width, height);
+
 
         add(wiz.icon);
         add(background);
