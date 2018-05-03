@@ -11,6 +11,7 @@ public class Player {
     int commonFloor = 45;
 
     boolean atTop = false;
+    boolean emergencyStop = false;
     boolean[][] allBoolMove = new boolean[2][6];
     boolean[][] whileBoolMove = new boolean[2][6];
 
@@ -32,7 +33,7 @@ public class Player {
     Player() {
 
         stopMoving();
-   //     icon.setOpaque(true);
+        //     icon.setOpaque(true);
 
     }
 
@@ -48,7 +49,7 @@ public class Player {
 
         //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
-            if (!whileBoolMove[1][4]) {
+            if (!isAttacking()) {
 
                 set(1, 2, allPic);
 
@@ -57,7 +58,7 @@ public class Player {
 
         }, e -> {
 
-            if (!whileBoolMove[1][4]) {
+            if (!isAttacking()) {
 
                 reset(1, 2, allPic);
 
@@ -67,7 +68,7 @@ public class Player {
 
         //sets the movement left
         addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
-            if (!whileBoolMove[1][4]) {
+            if (!isAttacking()) {
 
                 set(1, 0, allPic);
 
@@ -75,7 +76,7 @@ public class Player {
 
         }, e -> {
 
-            if (!whileBoolMove[1][4]) {
+            if (!isAttacking()) {
 
                 reset(1, 0, allPic);
 
@@ -142,7 +143,8 @@ public class Player {
             if (!isAttacking() && !isJumping()) {
 
                 set(0, 3, allPic);
-                icon.setLocation(icon.getLocation().x, icon.getY() - lightUp);
+                emergencyStop = true;
+                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
                 whileBoolMove[0][3] = true;
                 stopTimer.start();
 
@@ -271,7 +273,7 @@ public class Player {
 
     }
 
-    void stopMoving(){
+    void stopMoving() {
 
         //boolean for recording which button is pressed
         for (int i = 0; i < 2; i++) {
@@ -294,7 +296,6 @@ public class Player {
             }
 
         }
-
 
 
     }
@@ -349,13 +350,11 @@ public class Player {
 
     }
 
-    boolean isJumping(){
+    boolean isJumping() {
 
         return allBoolMove[0][1];
 
     }
-
-
 
 
 }

@@ -76,12 +76,21 @@ public class Wizard extends Player {
 
             }
 
+            if (emergencyStop) {
+
+                atTop = false;
+                jumpHeight = 33;
+                emergencyStop = false;
+                jumpTimer.stop();
+
+
+            }
+
             if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
 
                 System.out.println(icon.getY());
                 atTop = false;
                 reset(0, 1, allPic);
-                setLocGround(allPic);
                 jumpHeight = 33;
                 jumpTimer.stop();
 
@@ -107,6 +116,7 @@ public class Wizard extends Player {
 
             } else if (whileBoolMove[1][5] && count == 50) {
 
+                System.out.println(true);
                 stopMoving();
                 reset(1, 5, allPic);
                 stopTimer.stop();
@@ -114,8 +124,8 @@ public class Wizard extends Player {
             } else if (whileBoolMove[0][3] && count == 30) {
 
                 stopMoving();
-                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor);
                 reset(0, 3, allPic);
+                setLocGround(allPic);
                 stopTimer.stop();
 
             }
