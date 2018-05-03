@@ -7,12 +7,18 @@ public class Projectile extends JLabel {
 
     ImageIcon RShot = new ImageIcon(getClass().getResource("RShot.gif"));
 
-    public Projectile() {
 
-        RShot = imgRescaler(RShot, 125, 50);
+    public Projectile(JLabel icon) {
+
         setIcon(RShot);
-        setBounds(0, 0, RShot.getIconWidth(), RShot.getIconHeight());
+        setBounds(icon.getX() + 30, Math.round(icon.getY() + icon.getHeight() / 2), RShot.getIconWidth(), RShot.getIconHeight());
         setOpaque(false);
+
+    }
+
+    void moveHorizon(int m) {
+
+        setLocation(getLocation().x + m, getY());
 
     }
 

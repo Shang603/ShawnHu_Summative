@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Wizard extends Player {
 
@@ -23,14 +24,20 @@ public class Wizard extends Player {
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
 
+
+
     Wizard(JComponent RootPane, int whichPlayer) {
 
         setWiz();
         setMoveSpeed(8);
+        setProjectSpeed(20);
         setKeyBindingP1(RootPane, allPic);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
+
+
+//        allBulltes.add(new Projectile(icon));
 
         //method for what to do in move timer from super class
         moveAct(10, e -> {
@@ -90,7 +97,6 @@ public class Wizard extends Player {
 
             if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
 
-                System.out.println(icon.getY());
                 atTop = false;
                 reset(0, 1, allPic);
                 jumpHeight = 33;
@@ -116,9 +122,8 @@ public class Wizard extends Player {
                 reset(1, 4, allPic);
                 stopTimer.stop();
 
-            } else if (allBoolMove[1][5] && count == 50) {
+            } else if (allBoolMove[1][5] && count == 25) {
 
-                System.out.println(true);
                 stopMoving();
                 reset(1, 5, allPic);
                 stopTimer.stop();
@@ -133,6 +138,16 @@ public class Wizard extends Player {
             }
 
             count++;
+
+        });
+
+        bulletAct(20, e -> {
+
+            for (int i = 0; i < allBulltes.size(); i++) {
+
+                allBulltes.get(i).moveHorizon(20);
+
+            }
 
         });
 
@@ -172,6 +187,13 @@ public class Wizard extends Player {
 
     }
 
+    //sets the movementTimer speed
+    void setProjectSpeed(int s) {
+
+        projectSpeed = s;
+
+    }
+
     //makes wizard move horizontally
     void moveHorizon(int m) {
 
@@ -185,7 +207,7 @@ public class Wizard extends Player {
 
             icon.setLocation(World.width - icon.getWidth(), icon.getY());
 
-        }else if (icon.getX() <= 0) {
+        } else if (icon.getX() <= 0) {
 
             icon.setLocation(0, icon.getY());
 

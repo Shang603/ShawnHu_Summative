@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Player {
@@ -14,12 +15,14 @@ public class Player {
     boolean emergencyStop = false;
     boolean[][] allBoolMove = new boolean[2][6];
 
+    ArrayList<Projectile> allBulltes = new ArrayList<>();
 
     JLabel icon = new JLabel();
 
     Timer movementTimer;
     Timer jumpTimer;
     Timer stopTimer;
+    Timer bulletTimer;
 
     int jumpHeight = 33;
     int jumpSpeed = 3;
@@ -27,6 +30,8 @@ public class Player {
     int count = 0;
     int spinDown = 80;
     int lightUp = 600;
+    int projectSpeed;
+    int projectStart = 0;
 
 
     Player() {
@@ -124,9 +129,20 @@ public class Player {
         //sets the movement shoot
         addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
 
-            if (isAllBoolFalse(allBoolMove)) {
+            if (!isAttacking()) {
 
                 set(1, 5, allPic);
+
+                allBulltes.add(new Projectile(icon));
+
+                for (int i = projectStart; i < allBulltes.size(); i++) {
+
+                    Main.frame.add(allBulltes.get(i),0);
+
+                }
+
+                ++projectStart;
+                bulletTimer.start();
                 stopTimer.start();
 
             }
@@ -215,6 +231,16 @@ public class Player {
     void stopAct(int delay, ActionListener actionListener) {
 
         stopTimer = new Timer(delay, e -> {
+
+            actionListener.actionPerformed(e);
+
+        });
+
+    }
+
+    void bulletAct(int delay, ActionListener actionListener) {
+
+        bulletTimer = new Timer(delay, e -> {
 
             actionListener.actionPerformed(e);
 
@@ -336,6 +362,18 @@ public class Player {
     boolean isJumping() {
 
         return allBoolMove[0][1];
+
+    }
+
+    boolean isWalking() {
+
+        if (!allBoolMove[1][0] && !allBoolMove[1][2]) {
+
+            return false;
+
+        }
+
+        return true;
 
     }
 
