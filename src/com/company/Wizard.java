@@ -23,10 +23,11 @@ public class Wizard extends Player {
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
 
-    Wizard(JComponent RootPane) {
+    Wizard(JComponent RootPane, int whichPlayer) {
 
         setWiz();
         setMoveSpeed(8);
+        setKeyBindingP1(RootPane, allPic);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
@@ -34,6 +35,7 @@ public class Wizard extends Player {
         //method for what to do in move timer from super class
         moveAct(10, e -> {
 
+            outOfBounds();
             //if pressed D
             if (allBoolMove[1][2]) {
 
@@ -101,27 +103,27 @@ public class Wizard extends Player {
 
         stopAct(10, e -> {
 
-            if (whileBoolMove[1][3] && count == 18) {
+            if (allBoolMove[1][3] && count == 18) {
 
                 stopMoving();
                 reset(1, 3, allPic);
                 stopTimer.stop();
 
-            } else if (whileBoolMove[1][4] && count == 18) {
+            } else if (allBoolMove[1][4] && count == 18) {
 
+                icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
                 stopMoving();
                 reset(1, 4, allPic);
-                icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
                 stopTimer.stop();
 
-            } else if (whileBoolMove[1][5] && count == 50) {
+            } else if (allBoolMove[1][5] && count == 50) {
 
                 System.out.println(true);
                 stopMoving();
                 reset(1, 5, allPic);
                 stopTimer.stop();
 
-            } else if (whileBoolMove[0][3] && count == 30) {
+            } else if (allBoolMove[0][3] && count == 30) {
 
                 stopMoving();
                 reset(0, 3, allPic);
@@ -134,8 +136,6 @@ public class Wizard extends Player {
 
         });
 
-
-        setKeyBindingP1(RootPane, allPic);
 
         movementTimer.start();
 
@@ -179,7 +179,19 @@ public class Wizard extends Player {
 
     }
 
-    //overloaded method for resetting animation and movements once keys are let go
+    void outOfBounds() {
+
+        if (icon.getX() + icon.getWidth() >= World.width) {
+
+            icon.setLocation(World.width - icon.getWidth(), icon.getY());
+
+        }else if (icon.getX() <= 0) {
+
+            icon.setLocation(0, icon.getY());
+
+        }
+
+    }
 
 
 }

@@ -13,7 +13,6 @@ public class Player {
     boolean atTop = false;
     boolean emergencyStop = false;
     boolean[][] allBoolMove = new boolean[2][6];
-    boolean[][] whileBoolMove = new boolean[2][6];
 
 
     JLabel icon = new JLabel();
@@ -103,7 +102,6 @@ public class Player {
             if (!isAttacking()) {
 
                 set(1, 3, allPic);
-                whileBoolMove[1][3] = true;
                 stopTimer.start();
 
             }
@@ -117,7 +115,6 @@ public class Player {
 
                 icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
                 set(1, 4, allPic);
-                whileBoolMove[1][4] = true;
                 stopTimer.start();
 
             }
@@ -127,10 +124,9 @@ public class Player {
         //sets the movement shoot
         addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
 
-            if (!isAttacking()) {
+            if (isAllBoolFalse(allBoolMove)) {
 
                 set(1, 5, allPic);
-                whileBoolMove[1][5] = true;
                 stopTimer.start();
 
             }
@@ -145,7 +141,6 @@ public class Player {
                 set(0, 3, allPic);
                 emergencyStop = true;
                 icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
-                whileBoolMove[0][3] = true;
                 stopTimer.start();
 
             }
@@ -230,7 +225,6 @@ public class Player {
     void reset(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = false;
-        whileBoolMove[w][h] = false;
         count = 0;
 
         if (isAllBoolFalse(allBoolMove)) {
@@ -286,17 +280,6 @@ public class Player {
 
         }
 
-        //boolean for recording which action is performed
-        for (int i = 0; i < 2; i++) {
-
-            for (int j = 0; j < 6; j++) {
-
-                whileBoolMove[i][j] = false;
-
-            }
-
-        }
-
 
     }
 
@@ -322,25 +305,25 @@ public class Player {
 
     boolean isAttacking() {
 
-        if (whileBoolMove[0][3]) {
+        if (allBoolMove[0][3]) {
 
             return true;
 
         }
 
-        if (whileBoolMove[1][3]) {
+        if (allBoolMove[1][3]) {
 
             return true;
 
         }
 
-        if (whileBoolMove[1][4]) {
+        if (allBoolMove[1][4]) {
 
             return true;
 
         }
 
-        if (whileBoolMove[1][5]) {
+        if (allBoolMove[1][5]) {
 
             return true;
 

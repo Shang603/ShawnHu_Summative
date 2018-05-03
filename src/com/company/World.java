@@ -12,7 +12,7 @@ public class World extends JFrame {
     JLabel background = new JLabel();
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
-    Player wiz = new Wizard(getRootPane());
+    Player wiz = new Wizard(getRootPane(), 1);
 
     public World() {
 
@@ -30,8 +30,6 @@ public class World extends JFrame {
         add(background);
 
 
-
-
     }
 
     //resized images to correct size
@@ -43,8 +41,6 @@ public class World extends JFrame {
         return tempFinal;
 
     }
-
-
 
 
 }
