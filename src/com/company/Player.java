@@ -96,11 +96,19 @@ public class Player {
 
             for (int i = 0; i < allBulltes.size(); i++) {
 
-                if (facing == 0 && allBulltes.get(i).face == -1) {
+                if (allBulltes.get(i).face == -1) {
+
+                    allBulltes.get(i).face = facing;
+
+                }
+
+
+
+                if (allBulltes.get(i).face == 0) {
 
                     allBulltes.get(i).moveHorizon(projectSpeed);
 
-                } else if (facing == 2) {
+                } else if (allBulltes.get(i).face == 2) {
 
                     allBulltes.get(i).moveHorizon(-projectSpeed);
 
