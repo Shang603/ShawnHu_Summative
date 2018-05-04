@@ -56,7 +56,7 @@ public class FightClub extends JFrame {
 
     }
 
-    //resized images to correct size
+    //resize images to correct size
     ImageIcon imgRescaler(ImageIcon img, int w, int h) {
 
         //complete magic here

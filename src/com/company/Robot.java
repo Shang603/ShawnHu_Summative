@@ -113,6 +113,7 @@ public class Robot extends Player {
 
         });
 
+
         stopAct(10, e -> {
 
             //punch
@@ -125,12 +126,27 @@ public class Robot extends Player {
                 //kick
             } else if (allBoolMove[1][4] && count == 18) {
 
+                stopMoving();
+
                 if (whichPlayer[0]) {
 
                     icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
 
+                }else if (whichPlayer[1]) {
+
+                    if (facing == 2) {
+
+                        icon.setLocation(icon.getLocation().x + RobKickDistance, icon.getY());
+
+                    } else if (facing == 0) {
+
+                        icon.setLocation(icon.getLocation().x - RobKickDistance, icon.getY());
+
+                    }
+
                 }
-                stopMoving();
+
+
                 reset(1, 4);
                 stopTimer.stop();
 
@@ -138,6 +154,21 @@ public class Robot extends Player {
             } else if (allBoolMove[1][5] && count == 25) {
 
                 stopMoving();
+
+                if (whichPlayer[1]) {
+
+                    if (facing == 2) {
+
+                        icon.setLocation(icon.getLocation().x + RobShootDistance, icon.getY());
+
+                    } else if (facing == 0) {
+
+                        icon.setLocation(icon.getLocation().x - RobShootDistance, icon.getY());
+
+                    }
+
+                }
+
                 reset(1, 5);
                 stopTimer.stop();
 
@@ -155,17 +186,18 @@ public class Robot extends Player {
 
         });
 
+
         bulletAct(20, e -> {
 
             for (int i = 0; i < allBulltes.size(); i++) {
 
                 if (whichPlayerNum == 1) {
 
-                    allBulltes.get(i).moveHorizon(20);
+                    allBulltes.get(i).moveHorizon(projectSpeed);
 
                 } else if (whichPlayerNum == 2) {
 
-                    allBulltes.get(i).moveHorizon(-20);
+                    allBulltes.get(i).moveHorizon(-projectSpeed);
 
                 }
 

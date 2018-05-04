@@ -27,7 +27,7 @@ public class Wizard extends Player {
 
         setWiz();
         setMoveSpeed(8);
-        setProjectSpeed(20);
+        setProjectSpeed(30);
 
         if (whichPlayerNum == 1) {
 
@@ -159,11 +159,11 @@ public class Wizard extends Player {
 
                 if (facing == 0) {
 
-                    allBulltes.get(i).moveHorizon(20);
+                    allBulltes.get(i).moveHorizon(projectSpeed);
 
                 } else if (facing == 2) {
 
-                    allBulltes.get(i).moveHorizon(-20);
+                    allBulltes.get(i).moveHorizon(-projectSpeed);
 
                 }
 

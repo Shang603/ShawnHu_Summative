@@ -30,8 +30,13 @@ public class Player {
     int jumpSpeed = 3;
     int moveSpeed;
     int count = 0;
+
     int spinDown = 80;
     int lightUp = 600;
+
+    int RobKickDistance = 100;
+    int RobShootDistance = 100;
+
     int projectSpeed;
     int projectStart = 0;
     int facing = 0;
@@ -322,7 +327,20 @@ public class Player {
 
                     icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
 
+                } else if (whichPlayer[1]) {
+
+                    if (facing == 2) {
+
+                        icon.setLocation(icon.getLocation().x - RobKickDistance, icon.getY());
+
+                    } else if (facing == 0) {
+
+                        icon.setLocation(icon.getLocation().x + RobKickDistance, icon.getY());
+
+                    }
+
                 }
+
                 set(1, 4);
                 stopTimer.start();
 
@@ -336,6 +354,20 @@ public class Player {
             if (!isAttacking()) {
 
                 set(1, 5);
+
+                if (whichPlayer[1]) {
+
+                    if (facing == 2) {
+
+                        icon.setLocation(icon.getLocation().x - RobShootDistance, icon.getY());
+
+                    } else if (facing == 0) {
+
+                        icon.setLocation(icon.getLocation().x + RobShootDistance, icon.getY());
+
+                    }
+
+                }
 
                 bulletCreation();
 
