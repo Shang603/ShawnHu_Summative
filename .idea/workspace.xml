@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9aaa24-0238-4bcc-b483-b1f00ec2a0d7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/com/company/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Robot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Robot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Robot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state relative-caret-position="360">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -54,10 +55,9 @@
       <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+            <state relative-caret-position="301">
+              <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
               <folding>
-                <element signature="method#Wizard#0;class#Wizard#0" />
                 <element signature="e#2036#2083#0" />
                 <element signature="e#1949#2370#0" />
                 <element signature="e#2462#3352#0" />
@@ -73,33 +73,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+            <state relative-caret-position="158">
+              <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
               <folding>
-                <element signature="e#1030#1133#0" />
-                <element signature="e#1135#1240#0" />
-                <element signature="e#1335#1437#0" />
-                <element signature="e#1439#1545#0" />
-                <element signature="e#1634#1772#0" />
-                <element signature="e#1861#1999#0" />
-                <element signature="e#2090#2318#0" />
-                <element signature="e#2411#2562#0" />
-                <element signature="e#2659#2976#0" />
-                <element signature="method#addKeyBinder#0;class#Player#0" />
-                <element signature="method#addKeyBinder#1;class#Player#0" />
-                <element signature="method#moveAct#0;class#Player#0" />
-                <element signature="e#4454#4519#0" />
-                <element signature="method#jumpAct#0;class#Player#0" />
-                <element signature="e#4628#4693#0" />
-                <element signature="method#stopAct#0;class#Player#0" />
-                <element signature="e#4803#4868#0" />
-                <element signature="method#bulletAct#0;class#Player#0" />
-                <element signature="e#5005#5070#0" />
-                <element signature="method#reset#0;class#Player#0" />
-                <element signature="method#set#0;class#Player#0" />
+                <element signature="method#Player#0;class#Player#0" />
+                <element signature="e#887#933#0" />
+                <element signature="e#4018#4194#0" expanded="true" />
+                <element signature="e#4193#4194#0" expanded="true" />
+                <element signature="e#4642#4819#0" expanded="true" />
+                <element signature="e#4818#4819#0" expanded="true" />
+                <element signature="e#4856#5033#0" expanded="true" />
+                <element signature="e#5032#5033#0" expanded="true" />
                 <element signature="method#setLocGround#0;class#Player#0" />
                 <element signature="method#stopMoving#0;class#Player#0" />
                 <element signature="method#isAllBoolFalse#0;class#Player#0" />
@@ -114,7 +101,7 @@
       <file leaf-file-name="Projectile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Projectile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="204">
               <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
               <folding>
                 <element signature="method#imgRescaler#0;class#Projectile#0" />
@@ -139,6 +126,7 @@
       <find>whileBoolMove</find>
       <find>isAllBoolTrue</find>
       <find>system</find>
+      <find>, allPic</find>
     </findStrings>
     <replaceStrings>
       <replace>setLocGround(allPic)</replace>
@@ -151,7 +139,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/company/Robot.java" />
         <option value="$PROJECT_DIR$/src/com/company/window.java" />
         <option value="$PROJECT_DIR$/src/com/company/Spike.java" />
         <option value="$PROJECT_DIR$/src/com/company/World.java" />
@@ -159,6 +146,7 @@
         <option value="$PROJECT_DIR$/src/com/company/Projectile.java" />
         <option value="$PROJECT_DIR$/src/com/company/Wizard.java" />
         <option value="$PROJECT_DIR$/src/com/company/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Robot.java" />
       </list>
     </option>
   </component>
@@ -171,33 +159,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="ShawnHu_Summative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShawnHu_Summative" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShawnHu_Summative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShawnHu_Summative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ShawnHu_Summative" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ShawnHu_Summative" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../hackathon_hospital" />
@@ -272,7 +234,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3267974" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3267974" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Floobits" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -674,16 +636,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Robot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="204">
           <caret line="13" column="34" selection-start-line="13" selection-start-column="34" selection-end-line="13" selection-end-column="34" />
           <folding>
             <element signature="method#imgRescaler#0;class#Projectile#0" />
@@ -693,10 +648,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+        <state relative-caret-position="301">
+          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
-            <element signature="method#Wizard#0;class#Wizard#0" />
             <element signature="e#2036#2083#0" />
             <element signature="e#1949#2370#0" />
             <element signature="e#2462#3352#0" />
@@ -713,30 +667,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+        <state relative-caret-position="158">
+          <caret line="270" column="34" lean-forward="true" selection-start-line="270" selection-start-column="34" selection-end-line="270" selection-end-column="34" />
           <folding>
-            <element signature="e#1030#1133#0" />
-            <element signature="e#1135#1240#0" />
-            <element signature="e#1335#1437#0" />
-            <element signature="e#1439#1545#0" />
-            <element signature="e#1634#1772#0" />
-            <element signature="e#1861#1999#0" />
-            <element signature="e#2090#2318#0" />
-            <element signature="e#2411#2562#0" />
-            <element signature="e#2659#2976#0" />
-            <element signature="method#addKeyBinder#0;class#Player#0" />
-            <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
-            <element signature="e#4454#4519#0" />
-            <element signature="method#jumpAct#0;class#Player#0" />
-            <element signature="e#4628#4693#0" />
-            <element signature="method#stopAct#0;class#Player#0" />
-            <element signature="e#4803#4868#0" />
-            <element signature="method#bulletAct#0;class#Player#0" />
-            <element signature="e#5005#5070#0" />
-            <element signature="method#reset#0;class#Player#0" />
-            <element signature="method#set#0;class#Player#0" />
+            <element signature="method#Player#0;class#Player#0" />
+            <element signature="e#887#933#0" />
+            <element signature="e#4018#4194#0" expanded="true" />
+            <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4642#4819#0" expanded="true" />
+            <element signature="e#4818#4819#0" expanded="true" />
+            <element signature="e#4856#5033#0" expanded="true" />
+            <element signature="e#5032#5033#0" expanded="true" />
             <element signature="method#setLocGround#0;class#Player#0" />
             <element signature="method#stopMoving#0;class#Player#0" />
             <element signature="method#isAllBoolFalse#0;class#Player#0" />
@@ -744,6 +685,13 @@
             <element signature="method#isJumping#0;class#Player#0" />
             <element signature="method#isWalking#0;class#Player#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Robot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>

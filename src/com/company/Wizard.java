@@ -23,7 +23,7 @@ public class Wizard extends Player {
     ImageIcon LNormWizSpin = new ImageIcon(getClass().getResource("L_Norm_Wiz_SPin_v1.gif"));
     ImageIcon LNormWizLight = new ImageIcon(getClass().getResource("L_Norm_Wiz_Lightning_v4.gif"));
 
-    ImageIcon[][] allPic = new ImageIcon[4][6];
+    
 
 
 
@@ -33,13 +33,12 @@ public class Wizard extends Player {
         setWiz();
         setMoveSpeed(8);
         setProjectSpeed(20);
-        setKeyBindingP1(RootPane, allPic);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+        setKeyBindingP1(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
 
-//        allBulltes.add(new Projectile(icon));
 
         //method for what to do in move timer from super class
         moveAct(10, e -> {
@@ -100,7 +99,7 @@ public class Wizard extends Player {
             if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
 
                 atTop = false;
-                reset(0, 1, allPic);
+                reset(0, 1);
                 jumpHeight = 33;
                 jumpTimer.stop();
 
@@ -114,27 +113,27 @@ public class Wizard extends Player {
             if (allBoolMove[1][3] && count == 18) {
 
                 stopMoving();
-                reset(1, 3, allPic);
+                reset(1, 3);
                 stopTimer.stop();
 
             } else if (allBoolMove[1][4] && count == 18) {
 
                 icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
                 stopMoving();
-                reset(1, 4, allPic);
+                reset(1, 4);
                 stopTimer.stop();
 
             } else if (allBoolMove[1][5] && count == 25) {
 
                 stopMoving();
-                reset(1, 5, allPic);
+                reset(1, 5);
                 stopTimer.stop();
 
             } else if (allBoolMove[0][3] && count == 30) {
 
                 stopMoving();
-                reset(0, 3, allPic);
-                setLocGround(allPic);
+                reset(0, 3);
+                setLocGround();
                 stopTimer.stop();
 
             }
@@ -183,7 +182,7 @@ public class Wizard extends Player {
         allPic[2][0] = LNormWizStat;
         allPic[2][1] = LNormWizJump;
         allPic[3][0] = LNormWizWalk;
-        allPic[3][1] = RNormWizBlock;
+        allPic[3][1] = LNormWizBlock;
         allPic[3][2] = RNormWizWalk;
         allPic[2][3] = LNormWizLight;
         allPic[3][3] = LNormWizPunch;

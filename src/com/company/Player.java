@@ -15,6 +15,8 @@ public class Player {
     boolean emergencyStop = false;
     boolean[][] allBoolMove = new boolean[2][6];
 
+    ImageIcon[][] allPic = new ImageIcon[4][6];
+
     ArrayList<Projectile> allBulltes = new ArrayList<>();
 
     JLabel icon = new JLabel();
@@ -37,12 +39,11 @@ public class Player {
     Player() {
 
         stopMoving();
-        //     icon.setOpaque(true);
 
     }
 
     //sets all the keybinders for player 1
-    void setKeyBindingP1(JComponent RootPane, ImageIcon[][] allPic) {
+    void setKeyBindingP1(JComponent RootPane) {
 
         //TODO: make the exit button into gui, not escape
         addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
@@ -57,14 +58,14 @@ public class Player {
             if (!isAttacking()) {
 
                 stopMoving();
-                set(1, 1, allPic);
+                set(1, 1);
 
             }
 
 
         }, e -> {
 
-                reset(1, 1, allPic);
+                reset(1, 1);
 
         });
 
@@ -72,7 +73,7 @@ public class Player {
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
             if (!isAttacking()) {
 
-                set(1, 2, allPic);
+                set(1, 2);
 
             }
 
@@ -81,7 +82,7 @@ public class Player {
 
             if (!isAttacking()) {
 
-                reset(1, 2, allPic);
+                reset(1, 2);
 
             }
 
@@ -91,7 +92,7 @@ public class Player {
         addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
             if (!isAttacking()) {
 
-                set(1, 0, allPic);
+                set(1, 0);
 
             }
 
@@ -99,7 +100,7 @@ public class Player {
 
             if (!isAttacking()) {
 
-                reset(1, 0, allPic);
+                reset(1, 0);
 
             }
 
@@ -111,7 +112,7 @@ public class Player {
 
             if (!isAttacking()) {
 
-                set(0, 1, allPic);
+                set(0, 1);
                 jumpTimer.start();
 
             }
@@ -123,7 +124,7 @@ public class Player {
 
             if (!isAttacking()) {
 
-                set(1, 3, allPic);
+                set(1, 3);
                 stopTimer.start();
 
             }
@@ -136,7 +137,7 @@ public class Player {
             if (!isAttacking() && !atTop) {
 
                 icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
-                set(1, 4, allPic);
+                set(1, 4);
                 stopTimer.start();
 
             }
@@ -148,7 +149,7 @@ public class Player {
 
             if (!isAttacking()) {
 
-                set(1, 5, allPic);
+                set(1, 5);
 
                 allBulltes.add(new Projectile(icon));
 
@@ -171,7 +172,7 @@ public class Player {
 
             if (!isAttacking() && !isJumping()) {
 
-                set(0, 3, allPic);
+                set(0, 3);
                 emergencyStop = true;
                 icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
                 stopTimer.start();
@@ -265,7 +266,7 @@ public class Player {
 
     }
 
-    void reset(int w, int h, ImageIcon[][] allPic) {
+    void reset(int w, int h) {
 
         allBoolMove[w][h] = false;
         allPic[w][h].getImage().flush();
@@ -296,7 +297,7 @@ public class Player {
 
     }
 
-    void set(int w, int h, ImageIcon[][] allPic) {
+    void set(int w, int h) {
 
         allBoolMove[w][h] = true;
         icon.setSize(allPic[w][h].getIconWidth(), allPic[w][h].getIconHeight());
@@ -305,7 +306,7 @@ public class Player {
 
     }
 
-    void setLocGround(ImageIcon allPic[][]) {
+    void setLocGround() {
 
         icon.setLocation(icon.getX(), World.height - allPic[0][0].getIconHeight() - commonFloor);
 
