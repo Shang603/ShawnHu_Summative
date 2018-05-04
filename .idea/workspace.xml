@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0e9aaa24-0238-4bcc-b483-b1f00ec2a0d7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/com/company/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,10 +23,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="World.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="155">
               <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
             </state>
           </provider>
@@ -75,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="343">
+              <caret line="269" column="52" selection-start-line="269" selection-start-column="52" selection-end-line="269" selection-end-column="52" />
               <folding>
                 <element signature="method#setMoveSpeed#0;class#Player#0" />
                 <element signature="method#setProjectSpeed#0;class#Player#0" />
@@ -98,19 +95,6 @@
                 <element signature="e#2521#2749#0" />
                 <element signature="e#2842#3256#0" />
                 <element signature="e#3353#3670#0" />
-                <element signature="method#setKeyBindingP2#0;class#Player#0" />
-                <element signature="e#3807#3853#0" />
-                <element signature="e#3946#4072#0" />
-                <element signature="e#4074#4121#0" />
-                <element signature="e#4218#4313#0" />
-                <element signature="e#4315#4412#0" />
-                <element signature="e#4507#4601#0" />
-                <element signature="e#4603#4701#0" />
-                <element signature="e#4790#4920#0" />
-                <element signature="e#5009#5139#0" />
-                <element signature="e#5230#5450#0" />
-                <element signature="e#5543#5949#0" />
-                <element signature="e#6046#6355#0" />
                 <element signature="method#addKeyBinder#0;class#Player#0" />
                 <element signature="method#addKeyBinder#1;class#Player#0" />
                 <element signature="method#moveAct#0;class#Player#0" />
@@ -181,10 +165,10 @@
         <option value="$PROJECT_DIR$/src/com/company/Spike.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/Projectile.java" />
-        <option value="$PROJECT_DIR$/src/com/company/Player.java" />
         <option value="$PROJECT_DIR$/src/com/company/Wizard.java" />
         <option value="$PROJECT_DIR$/src/com/company/Robot.java" />
         <option value="$PROJECT_DIR$/src/com/company/World.java" />
+        <option value="$PROJECT_DIR$/src/com/company/Player.java" />
       </list>
     </option>
   </component>
@@ -379,7 +363,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="13" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -692,70 +676,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Spike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="method#setMoveSpeed#0;class#Player#0" />
-            <element signature="method#setProjectSpeed#0;class#Player#0" />
-            <element signature="method#moveHorizon#0;class#Player#0" />
-            <element signature="method#outOfBounds#0;class#Player#0" />
-            <element signature="method#setKeyBindingP1#0;class#Player#0" />
-            <element signature="e#887#933#0" />
-            <element signature="e#1173#1307#0" />
-            <element signature="e#1309#1364#0" />
-            <element signature="e#1461#1564#0" />
-            <element signature="e#1566#1671#0" />
-            <element signature="e#1766#1868#0" />
-            <element signature="e#1870#1976#0" />
-            <element signature="e#2065#2203#0" />
-            <element signature="e#2292#2430#0" />
-            <element signature="e#2521#2749#0" />
-            <element signature="e#2842#3256#0" />
-            <element signature="e#3353#3670#0" />
-            <element signature="method#setKeyBindingP2#0;class#Player#0" />
-            <element signature="e#3807#3853#0" />
-            <element signature="e#3946#4072#0" />
-            <element signature="e#4074#4121#0" />
-            <element signature="e#4218#4313#0" />
-            <element signature="e#4315#4412#0" />
-            <element signature="e#4507#4601#0" />
-            <element signature="e#4603#4701#0" />
-            <element signature="e#4790#4920#0" />
-            <element signature="e#5009#5139#0" />
-            <element signature="e#5230#5450#0" />
-            <element signature="e#5543#5949#0" />
-            <element signature="e#6046#6355#0" />
-            <element signature="method#addKeyBinder#0;class#Player#0" />
-            <element signature="method#addKeyBinder#1;class#Player#0" />
-            <element signature="method#moveAct#0;class#Player#0" />
-            <element signature="e#5148#5213#0" />
-            <element signature="method#jumpAct#0;class#Player#0" />
-            <element signature="e#5322#5387#0" />
-            <element signature="method#stopAct#0;class#Player#0" />
-            <element signature="e#5497#5562#0" />
-            <element signature="method#bulletAct#0;class#Player#0" />
-            <element signature="e#5676#5741#0" />
-            <element signature="method#reset#0;class#Player#0" />
-            <element signature="method#set#0;class#Player#0" />
-            <element signature="method#setLocGround#0;class#Player#0" />
-            <element signature="method#stopMoving#0;class#Player#0" />
-            <element signature="method#isAllBoolFalse#0;class#Player#0" />
-            <element signature="method#isAttacking#0;class#Player#0" />
-            <element signature="method#isJumping#0;class#Player#0" />
-            <element signature="method#isWalking#0;class#Player#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -785,8 +705,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/World.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="155">
           <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Spike.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="269" column="52" selection-start-line="269" selection-start-column="52" selection-end-line="269" selection-end-column="52" />
+          <folding>
+            <element signature="method#setMoveSpeed#0;class#Player#0" />
+            <element signature="method#setProjectSpeed#0;class#Player#0" />
+            <element signature="method#moveHorizon#0;class#Player#0" />
+            <element signature="method#outOfBounds#0;class#Player#0" />
+            <element signature="method#setKeyBindingP1#0;class#Player#0" />
+            <element signature="e#887#933#0" />
+            <element signature="e#1173#1307#0" />
+            <element signature="e#1309#1364#0" />
+            <element signature="e#1461#1564#0" />
+            <element signature="e#1566#1671#0" />
+            <element signature="e#1766#1868#0" />
+            <element signature="e#1870#1976#0" />
+            <element signature="e#2065#2203#0" />
+            <element signature="e#2292#2430#0" />
+            <element signature="e#2521#2749#0" />
+            <element signature="e#2842#3256#0" />
+            <element signature="e#3353#3670#0" />
+            <element signature="method#addKeyBinder#0;class#Player#0" />
+            <element signature="method#addKeyBinder#1;class#Player#0" />
+            <element signature="method#moveAct#0;class#Player#0" />
+            <element signature="e#5148#5213#0" />
+            <element signature="method#jumpAct#0;class#Player#0" />
+            <element signature="e#5322#5387#0" />
+            <element signature="method#stopAct#0;class#Player#0" />
+            <element signature="e#5497#5562#0" />
+            <element signature="method#bulletAct#0;class#Player#0" />
+            <element signature="e#5676#5741#0" />
+            <element signature="method#reset#0;class#Player#0" />
+            <element signature="method#set#0;class#Player#0" />
+            <element signature="method#setLocGround#0;class#Player#0" />
+            <element signature="method#stopMoving#0;class#Player#0" />
+            <element signature="method#isAllBoolFalse#0;class#Player#0" />
+            <element signature="method#isAttacking#0;class#Player#0" />
+            <element signature="method#isJumping#0;class#Player#0" />
+            <element signature="method#isWalking#0;class#Player#0" />
+          </folding>
         </state>
       </provider>
     </entry>

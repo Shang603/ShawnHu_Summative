@@ -82,16 +82,16 @@ public class Player {
     void setKeyBindingP1(JComponent RootPane) {
 
         //TODO: make the exit button into gui, not escape
-        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "P1Exit", e -> {
 
             System.exit(0);
 
         });
 
         //sets the movement block
-        addKeyBinder(RootPane, KeyEvent.VK_S, "Block", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_S, "P1Block", e -> {
 
-            if (!isAttacking()) {
+            if (!isAttacking() && !isJumping()) {
 
                 stopMoving();
                 set(1, 1);
@@ -106,7 +106,7 @@ public class Player {
         });
 
         //sets the movement right
-        addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_D, "P1MoveRight", e -> {
             if (!isAttacking()) {
 
                 set(1, 2);
@@ -125,7 +125,7 @@ public class Player {
         });
 
         //sets the movement left
-        addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_A, "P1MoveLeft", e -> {
             if (!isAttacking()) {
 
                 set(1, 0);
@@ -144,7 +144,7 @@ public class Player {
         });
 
         //sets the movement up
-        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_W, "P1Jump", e -> {
 
             if (!isAttacking()) {
 
@@ -156,7 +156,7 @@ public class Player {
         });
 
         //sets the movement hit
-        addKeyBinder(RootPane, KeyEvent.VK_J, "Hit", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_J, "P1Hit", e -> {
 
             if (!isAttacking()) {
 
@@ -168,7 +168,7 @@ public class Player {
         });
 
         //sets the movement kick
-        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_K, "P1Kick", e -> {
 
             if (!isAttacking() && !atTop) {
 
@@ -181,7 +181,7 @@ public class Player {
         });
 
         //sets the movement shoot
-        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_L, "P1Shoot", e -> {
 
             if (!isAttacking()) {
 
@@ -204,7 +204,7 @@ public class Player {
         });
 
         //sets the movement super
-        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_U, "P1Lightning", e -> {
 
             if (!isAttacking() && !isJumping()) {
 
@@ -223,12 +223,12 @@ public class Player {
     //sets all the keybinders for player 2
     void setKeyBindingP2(JComponent RootPane) {
 
-//        //TODO: make the exit button into gui, not escape
-//        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
-//
-//            System.exit(0);
-//
-//        });
+        //TODO: make the exit button into gui, not escape
+        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
+
+            System.exit(0);
+
+        });
 //
 //        //sets the movement block
 //        addKeyBinder(RootPane, KeyEvent.VK_S, "Block", e -> {
@@ -247,58 +247,58 @@ public class Player {
 //
 //        });
 //
-//        //sets the movement right
-//        addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
-//            if (!isAttacking()) {
+        //sets the movement right
+        addKeyBinder(RootPane, KeyEvent.VK_RIGHT, "P2MoveRight", e -> {
+            if (!isAttacking()) {
+
+                set(1, 2);
+
+            }
+
+
+        }, e -> {
+
+            if (!isAttacking()) {
+
+                reset(1, 2);
+
+            }
+
+        });
 //
-//                set(1, 2);
-//
-//            }
-//
-//
-//        }, e -> {
-//
-//            if (!isAttacking()) {
-//
-//                reset(1, 2);
-//
-//            }
-//
-//        });
-//
-//        //sets the movement left
-//        addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
-//            if (!isAttacking()) {
-//
-//                set(1, 0);
-//
-//            }
-//
-//        }, e -> {
-//
-//            if (!isAttacking()) {
-//
-//                reset(1, 0);
-//
-//            }
-//
-//
-//        });
-//
-//        //sets the movement up
-//        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
-//
-//            if (!isAttacking()) {
-//
-//                set(0, 1);
-//                jumpTimer.start();
-//
-//            }
-//
-//        });
-//
+        //sets the movement left
+        addKeyBinder(RootPane, KeyEvent.VK_LEFT, "P2MoveLeft", e -> {
+            if (!isAttacking()) {
+
+                set(1, 0);
+
+            }
+
+        }, e -> {
+
+            if (!isAttacking()) {
+
+                reset(1, 0);
+
+            }
+
+
+        });
+
+        //sets the movement up
+        addKeyBinder(RootPane, KeyEvent.VK_UP, "P2Jump", e -> {
+
+            if (!isAttacking()) {
+
+                set(0, 1);
+                jumpTimer.start();
+
+            }
+
+        });
+
 //        //sets the movement hit
-//        addKeyBinder(RootPane, KeyEvent.VK_J, "Hit", e -> {
+//        addKeyBinder(RootPane, KeyEvent.VK_J, "P2Hit", e -> {
 //
 //            if (!isAttacking()) {
 //
