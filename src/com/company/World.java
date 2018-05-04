@@ -13,6 +13,7 @@ public class World extends JFrame {
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
     Player wiz = new Wizard(getRootPane(), 1);
+    Player rob = new Robot(getRootPane(), 2);
 
     public World() {
 
@@ -28,6 +29,7 @@ public class World extends JFrame {
 
 
         add(wiz.icon);
+        add(rob.icon);
         add(background);
 
 

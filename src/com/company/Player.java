@@ -42,6 +42,42 @@ public class Player {
 
     }
 
+
+    //sets the movementTimer speed
+    void setMoveSpeed(int s) {
+
+        moveSpeed = s;
+
+    }
+
+    //sets the movementTimer speed
+    void setProjectSpeed(int s) {
+
+        projectSpeed = s;
+
+    }
+
+    //makes wizard move horizontally
+    void moveHorizon(int m) {
+
+        icon.setLocation(icon.getLocation().x + m, icon.getY());
+
+    }
+
+    void outOfBounds() {
+
+        if (icon.getX() + icon.getWidth() >= World.width) {
+
+            icon.setLocation(World.width - icon.getWidth(), icon.getY());
+
+        } else if (icon.getX() <= 0) {
+
+            icon.setLocation(0, icon.getY());
+
+        }
+
+    }
+
     //sets all the keybinders for player 1
     void setKeyBindingP1(JComponent RootPane) {
 
@@ -180,6 +216,148 @@ public class Player {
             }
 
         });
+
+
+    }
+
+    //sets all the keybinders for player 2
+    void setKeyBindingP2(JComponent RootPane) {
+
+//        //TODO: make the exit button into gui, not escape
+//        addKeyBinder(RootPane, KeyEvent.VK_ESCAPE, "Exit", e -> {
+//
+//            System.exit(0);
+//
+//        });
+//
+//        //sets the movement block
+//        addKeyBinder(RootPane, KeyEvent.VK_S, "Block", e -> {
+//
+//            if (!isAttacking()) {
+//
+//                stopMoving();
+//                set(1, 1);
+//
+//            }
+//
+//
+//        }, e -> {
+//
+//            reset(1, 1);
+//
+//        });
+//
+//        //sets the movement right
+//        addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
+//            if (!isAttacking()) {
+//
+//                set(1, 2);
+//
+//            }
+//
+//
+//        }, e -> {
+//
+//            if (!isAttacking()) {
+//
+//                reset(1, 2);
+//
+//            }
+//
+//        });
+//
+//        //sets the movement left
+//        addKeyBinder(RootPane, KeyEvent.VK_A, "MoveLeft", e -> {
+//            if (!isAttacking()) {
+//
+//                set(1, 0);
+//
+//            }
+//
+//        }, e -> {
+//
+//            if (!isAttacking()) {
+//
+//                reset(1, 0);
+//
+//            }
+//
+//
+//        });
+//
+//        //sets the movement up
+//        addKeyBinder(RootPane, KeyEvent.VK_W, "Jump", e -> {
+//
+//            if (!isAttacking()) {
+//
+//                set(0, 1);
+//                jumpTimer.start();
+//
+//            }
+//
+//        });
+//
+//        //sets the movement hit
+//        addKeyBinder(RootPane, KeyEvent.VK_J, "Hit", e -> {
+//
+//            if (!isAttacking()) {
+//
+//                set(1, 3);
+//                stopTimer.start();
+//
+//            }
+//
+//        });
+//
+//        //sets the movement kick
+//        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
+//
+//            if (!isAttacking() && !atTop) {
+//
+//                icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
+//                set(1, 4);
+//                stopTimer.start();
+//
+//            }
+//
+//        });
+//
+//        //sets the movement shoot
+//        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
+//
+//            if (!isAttacking()) {
+//
+//                set(1, 5);
+//
+//                allBulltes.add(new Projectile(icon));
+//
+//                for (int i = projectStart; i < allBulltes.size(); i++) {
+//
+//                    Main.frame.add(allBulltes.get(i),0);
+//
+//                }
+//
+//                ++projectStart;
+//                bulletTimer.start();
+//                stopTimer.start();
+//
+//            }
+//
+//        });
+//
+//        //sets the movement super
+//        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
+//
+//            if (!isAttacking() && !isJumping()) {
+//
+//                set(0, 3);
+//                emergencyStop = true;
+//                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
+//                stopTimer.start();
+//
+//            }
+//
+//        });
 
 
     }

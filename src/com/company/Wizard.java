@@ -23,9 +23,7 @@ public class Wizard extends Player {
     ImageIcon LNormWizSpin = new ImageIcon(getClass().getResource("L_Norm_Wiz_SPin_v1.gif"));
     ImageIcon LNormWizLight = new ImageIcon(getClass().getResource("L_Norm_Wiz_Lightning_v4.gif"));
 
-    
-
-
+    final int JUMP_HEIGHT = 33;
 
 
     Wizard(JComponent RootPane, int whichPlayer) {
@@ -33,7 +31,16 @@ public class Wizard extends Player {
         setWiz();
         setMoveSpeed(8);
         setProjectSpeed(20);
-        setKeyBindingP1(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+
+        if (whichPlayer == 1) {
+
+            setKeyBindingP1(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+
+        } if (whichPlayer == 2) {
+
+            setKeyBindingP2(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+
+        }
 
         icon.setIcon(RNormWizStat);
         icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
@@ -89,7 +96,7 @@ public class Wizard extends Player {
             if (emergencyStop) {
 
                 atTop = false;
-                jumpHeight = 33;
+                jumpHeight = JUMP_HEIGHT;
                 emergencyStop = false;
                 jumpTimer.stop();
 
@@ -100,7 +107,7 @@ public class Wizard extends Player {
 
                 atTop = false;
                 reset(0, 1);
-                jumpHeight = 33;
+                jumpHeight = JUMP_HEIGHT;
                 jumpTimer.stop();
 
             }
@@ -165,6 +172,7 @@ public class Wizard extends Player {
 
     }
 
+
     //setup pics
     void setWiz() {
 
@@ -188,41 +196,6 @@ public class Wizard extends Player {
         allPic[3][3] = LNormWizPunch;
         allPic[3][4] = LNormWizSpin;
         allPic[3][5] = LNormWizShot;
-
-    }
-
-    //sets the movementTimer speed
-    void setMoveSpeed(int s) {
-
-        moveSpeed = s;
-
-    }
-
-    //sets the movementTimer speed
-    void setProjectSpeed(int s) {
-
-        projectSpeed = s;
-
-    }
-
-    //makes wizard move horizontally
-    void moveHorizon(int m) {
-
-        icon.setLocation(icon.getLocation().x + m, icon.getY());
-
-    }
-
-    void outOfBounds() {
-
-        if (icon.getX() + icon.getWidth() >= World.width) {
-
-            icon.setLocation(World.width - icon.getWidth(), icon.getY());
-
-        } else if (icon.getX() <= 0) {
-
-            icon.setLocation(0, icon.getY());
-
-        }
 
     }
 
