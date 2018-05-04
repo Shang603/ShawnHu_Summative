@@ -7,6 +7,7 @@ public class Robot extends Player {
     ImageIcon RNormRobStat = new ImageIcon(getClass().getResource("R_Norm_Rob_Stat_v2.gif"));
     ImageIcon RNormRobWalk = new ImageIcon(getClass().getResource("R_Norm_Rob_Walk_v2.gif"));
     ImageIcon RNormRobJump = new ImageIcon(getClass().getResource("R_Norm_Rob_Jump_v1.gif"));
+    ImageIcon RRobBlock = new ImageIcon(getClass().getResource("R_Rob_Block.gif"));
     ImageIcon RNormRobPunch = new ImageIcon(getClass().getResource("R_Norm_Rob_Punch_v2.gif"));
     ImageIcon RNormRobShot = new ImageIcon(getClass().getResource("R_Norm_Rob_Gun_v2.gif"));
     ImageIcon RNormRobKick = new ImageIcon(getClass().getResource("R_Norm_Rob_Kick_v2.gif"));
@@ -15,6 +16,7 @@ public class Robot extends Player {
     ImageIcon LNormRobStat = new ImageIcon(getClass().getResource("L_Norm_Rob_Stat_v2.gif"));
     ImageIcon LNormRobWalk = new ImageIcon(getClass().getResource("L_Norm_Rob_Walk_v2.gif"));
     ImageIcon LNormRobJump = new ImageIcon(getClass().getResource("L_Norm_Rob_Jump_v1.gif"));
+    ImageIcon LRobBlock = new ImageIcon(getClass().getResource("L_Rob_Block.gif"));
     ImageIcon LNormRobPunch = new ImageIcon(getClass().getResource("L_Norm_Rob_Punch_v2.gif"));
     ImageIcon LNormRobShot = new ImageIcon(getClass().getResource("L_Norm_Rob_Gun_v2.gif"));
     ImageIcon LNormRobKick = new ImageIcon(getClass().getResource("L_Norm_Rob_Kick_v2.gif"));
@@ -226,6 +228,7 @@ public class Robot extends Player {
         allPic[0][0] = RNormRobStat;
         allPic[0][1] = RNormRobJump;
         allPic[1][0] = LNormRobWalk;
+        allPic[1][1] = RRobBlock;
         allPic[1][2] = RNormRobWalk;
         allPic[0][3] = RNormRobSlam;
         allPic[1][3] = RNormRobPunch;
@@ -235,6 +238,7 @@ public class Robot extends Player {
         allPic[2][0] = LNormRobStat;
         allPic[2][1] = LNormRobJump;
         allPic[3][0] = LNormRobWalk;
+        allPic[3][1] = LRobBlock;
         allPic[3][2] = RNormRobWalk;
         allPic[2][3] = LNormRobSlam;
         allPic[3][3] = LNormRobPunch;

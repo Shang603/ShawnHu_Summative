@@ -238,24 +238,24 @@ public class Player {
             System.exit(0);
 
         });
-//
-//        //sets the movement block
-//        addKeyBinder(RootPane, KeyEvent.VK_S, "Block", e -> {
-//
-//            if (!isAttacking()) {
-//
-//                stopMoving();
-//                set(1, 1);
-//
-//            }
-//
-//
-//        }, e -> {
-//
-//            reset(1, 1);
-//
-//        });
-//
+
+        //sets the movement block
+        addKeyBinder(RootPane, KeyEvent.VK_DOWN, "P2Block", e -> {
+
+            if (!isAttacking()) {
+
+                stopMoving();
+                set(1, 1);
+
+            }
+
+
+        }, e -> {
+
+            reset(1, 1);
+
+        });
+
         //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_RIGHT, "P2MoveRight", e -> {
             if (!isAttacking()) {
