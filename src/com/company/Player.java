@@ -5,7 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Player {
 
@@ -14,6 +13,7 @@ public class Player {
     boolean atTop = false;
     boolean emergencyStop = false;
     boolean[][] allBoolMove = new boolean[2][6];
+    boolean[] whichPlayer = new boolean[3];
 
     ImageIcon[][] allPic = new ImageIcon[4][6];
 
@@ -34,6 +34,9 @@ public class Player {
     int lightUp = 600;
     int projectSpeed;
     int projectStart = 0;
+    int facing = 0;
+
+    final int JUMP_HEIGHT = 33;
 
 
     Player() {
@@ -66,9 +69,9 @@ public class Player {
 
     void outOfBounds() {
 
-        if (icon.getX() + icon.getWidth() >= World.width) {
+        if (icon.getX() + icon.getWidth() >= FightClub.width) {
 
-            icon.setLocation(World.width - icon.getWidth(), icon.getY());
+            icon.setLocation(FightClub.width - icon.getWidth(), icon.getY());
 
         } else if (icon.getX() <= 0) {
 
@@ -101,7 +104,7 @@ public class Player {
 
         }, e -> {
 
-                reset(1, 1);
+            reset(1, 1);
 
         });
 
@@ -156,7 +159,7 @@ public class Player {
         });
 
         //sets the movement hit
-        addKeyBinder(RootPane, KeyEvent.VK_J, "P1Hit", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_F, "P1Hit", e -> {
 
             if (!isAttacking()) {
 
@@ -168,7 +171,7 @@ public class Player {
         });
 
         //sets the movement kick
-        addKeyBinder(RootPane, KeyEvent.VK_K, "P1Kick", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_G, "P1Kick", e -> {
 
             if (!isAttacking() && !atTop) {
 
@@ -181,17 +184,17 @@ public class Player {
         });
 
         //sets the movement shoot
-        addKeyBinder(RootPane, KeyEvent.VK_L, "P1Shoot", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_H, "P1Shoot", e -> {
 
             if (!isAttacking()) {
 
                 set(1, 5);
 
-                allBulltes.add(new Projectile(icon));
+                allBulltes.add(new Projectile(icon,facing));
 
                 for (int i = projectStart; i < allBulltes.size(); i++) {
 
-                    Main.frame.add(allBulltes.get(i),0);
+                    Main.frame.add(allBulltes.get(i), 0);
 
                 }
 
@@ -204,13 +207,13 @@ public class Player {
         });
 
         //sets the movement super
-        addKeyBinder(RootPane, KeyEvent.VK_U, "P1Lightning", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_R, "P1Lightning", e -> {
 
             if (!isAttacking() && !isJumping()) {
 
                 set(0, 3);
                 emergencyStop = true;
-                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
+                icon.setLocation(icon.getLocation().x, FightClub.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
                 stopTimer.start();
 
             }
@@ -265,7 +268,7 @@ public class Player {
             }
 
         });
-//
+
         //sets the movement left
         addKeyBinder(RootPane, KeyEvent.VK_LEFT, "P2MoveLeft", e -> {
             if (!isAttacking()) {
@@ -297,67 +300,75 @@ public class Player {
 
         });
 
-//        //sets the movement hit
-//        addKeyBinder(RootPane, KeyEvent.VK_J, "P2Hit", e -> {
-//
-//            if (!isAttacking()) {
-//
-//                set(1, 3);
-//                stopTimer.start();
-//
-//            }
-//
-//        });
-//
-//        //sets the movement kick
-//        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
-//
-//            if (!isAttacking() && !atTop) {
-//
-//                icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
-//                set(1, 4);
-//                stopTimer.start();
-//
-//            }
-//
-//        });
-//
-//        //sets the movement shoot
-//        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
-//
-//            if (!isAttacking()) {
-//
-//                set(1, 5);
-//
-//                allBulltes.add(new Projectile(icon));
-//
-//                for (int i = projectStart; i < allBulltes.size(); i++) {
-//
-//                    Main.frame.add(allBulltes.get(i),0);
-//
-//                }
-//
-//                ++projectStart;
-//                bulletTimer.start();
-//                stopTimer.start();
-//
-//            }
-//
-//        });
-//
-//        //sets the movement super
-//        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
-//
-//            if (!isAttacking() && !isJumping()) {
-//
-//                set(0, 3);
-//                emergencyStop = true;
-//                icon.setLocation(icon.getLocation().x, World.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
-//                stopTimer.start();
-//
-//            }
-//
-//        });
+        //sets the movement hit
+        addKeyBinder(RootPane, KeyEvent.VK_J, "P2Hit", e -> {
+
+            if (!isAttacking()) {
+
+                set(1, 3);
+                stopTimer.start();
+
+            }
+
+        });
+
+        //sets the movement kick
+        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
+
+            if (!isAttacking() && !atTop) {
+
+                if (whichPlayer[0]) {
+
+                    icon.setLocation(icon.getLocation().x, icon.getY() + spinDown);
+
+                }
+                set(1, 4);
+                stopTimer.start();
+
+            }
+
+        });
+
+        //sets the movement shoot
+        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
+
+            if (!isAttacking()) {
+
+                set(1, 5);
+
+                allBulltes.add(new Projectile(icon,facing));
+
+                for (int i = projectStart; i < allBulltes.size(); i++) {
+
+                    Main.frame.add(allBulltes.get(i), 0);
+
+                }
+
+                ++projectStart;
+                bulletTimer.start();
+                stopTimer.start();
+
+            }
+
+        });
+
+        //sets the movement super
+        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
+
+            if (!isAttacking() && !isJumping()) {
+
+                set(0, 3);
+                if (whichPlayer[0]) {
+
+                    emergencyStop = true;
+                    icon.setLocation(icon.getLocation().x, FightClub.height - allPic[0][0].getIconHeight() - commonFloor - lightUp);
+
+                }
+                stopTimer.start();
+
+            }
+
+        });
 
 
     }
@@ -444,27 +455,77 @@ public class Player {
 
     }
 
-    void reset(int w, int h) {
+    void set(int w, int h) {
 
-        allBoolMove[w][h] = false;
-        allPic[w][h].getImage().flush();
-        count = 0;
+        allBoolMove[w][h] = true;
 
-        if (isAllBoolFalse(allBoolMove)) {
+        if (facing == 0) {
 
-            icon.setIcon(allPic[0][0]);
-            icon.setSize(allPic[0][0].getIconWidth(), allPic[0][0].getIconHeight());
+            icon.setSize(allPic[w][h].getIconWidth(), allPic[w][h].getIconHeight());
+            icon.setIcon(allPic[w][h]);
+
+        } else if (facing == 2) {
+
+            icon.setSize(allPic[w + facing][h].getIconWidth(), allPic[w + facing][h].getIconHeight());
+            icon.setIcon(allPic[w + facing][h]);
 
         }
 
-        for (int i = 0; i < 2; i++) {
 
-            for (int j = 0; j < 6; j++) {
+    }
 
-                if (allBoolMove[i][j]) {
+    void reset(int w, int h) {
 
-                    icon.setIcon(allPic[i][j]);
-                    icon.setSize(allPic[i][j].getIconWidth(), allPic[i][j].getIconHeight());
+        allBoolMove[w][h] = false;
+        count = 0;
+
+        if (facing == 0) {
+
+            allPic[w][h].getImage().flush();
+
+            if (isAllBoolFalse(allBoolMove)) {
+
+                icon.setIcon(allPic[0][0]);
+                icon.setSize(allPic[0][0].getIconWidth(), allPic[0][0].getIconHeight());
+
+            }
+
+            for (int i = 0; i < 2; i++) {
+
+                for (int j = 0; j < 6; j++) {
+
+                    if (allBoolMove[i][j]) {
+
+                        icon.setIcon(allPic[i][j]);
+                        icon.setSize(allPic[i][j].getIconWidth(), allPic[i][j].getIconHeight());
+
+                    }
+
+                }
+
+            }
+
+        } else if (facing == 2) {
+
+            allPic[w + facing][h].getImage().flush();
+
+            if (isAllBoolFalse(allBoolMove)) {
+
+                icon.setIcon(allPic[facing][0]);
+                icon.setSize(allPic[facing][0].getIconWidth(), allPic[facing][0].getIconHeight());
+
+            }
+
+            for (int i = 0; i < 2; i++) {
+
+                for (int j = 0; j < 6; j++) {
+
+                    if (allBoolMove[i][j]) {
+
+                        icon.setIcon(allPic[i + facing][j]);
+                        icon.setSize(allPic[i + facing][j].getIconWidth(), allPic[i + facing][j].getIconHeight());
+
+                    }
 
                 }
 
@@ -475,18 +536,9 @@ public class Player {
 
     }
 
-    void set(int w, int h) {
-
-        allBoolMove[w][h] = true;
-        icon.setSize(allPic[w][h].getIconWidth(), allPic[w][h].getIconHeight());
-        icon.setIcon(allPic[w][h]);
-
-
-    }
-
     void setLocGround() {
 
-        icon.setLocation(icon.getX(), World.height - allPic[0][0].getIconHeight() - commonFloor);
+        icon.setLocation(icon.getX(), FightClub.height - allPic[0][0].getIconHeight() - commonFloor);
 
     }
 

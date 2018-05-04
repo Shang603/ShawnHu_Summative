@@ -1,7 +1,6 @@
 package com.company;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class Wizard extends Player {
 
@@ -23,27 +22,28 @@ public class Wizard extends Player {
     ImageIcon LNormWizSpin = new ImageIcon(getClass().getResource("L_Norm_Wiz_SPin_v1.gif"));
     ImageIcon LNormWizLight = new ImageIcon(getClass().getResource("L_Norm_Wiz_Lightning_v4.gif"));
 
-    final int JUMP_HEIGHT = 33;
 
-
-    Wizard(JComponent RootPane, int whichPlayer) {
+    Wizard(JComponent RootPane, int whichPlayerNum) {
 
         setWiz();
         setMoveSpeed(8);
         setProjectSpeed(20);
 
-        if (whichPlayer == 1) {
+        if (whichPlayerNum == 1) {
 
-            setKeyBindingP1(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+            facing = 0;
+            setKeyBindingP1(RootPane);
 
-        } if (whichPlayer == 2) {
+        } else if (whichPlayerNum == 2) {
 
-            setKeyBindingP2(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+            facing = 2;
+            setKeyBindingP2(RootPane);
 
         }
 
+
         icon.setIcon(RNormWizStat);
-        icon.setBounds(0, World.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
+        icon.setBounds(0, FightClub.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
 
 
@@ -103,7 +103,7 @@ public class Wizard extends Player {
 
             }
 
-            if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
+            if (icon.getLocation().y >= FightClub.height - icon.getHeight() - commonFloor) {
 
                 atTop = false;
                 reset(0, 1);
@@ -117,12 +117,14 @@ public class Wizard extends Player {
 
         stopAct(10, e -> {
 
+            //punch
             if (allBoolMove[1][3] && count == 18) {
 
                 stopMoving();
                 reset(1, 3);
                 stopTimer.stop();
 
+                //kick
             } else if (allBoolMove[1][4] && count == 18) {
 
                 icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
@@ -130,12 +132,14 @@ public class Wizard extends Player {
                 reset(1, 4);
                 stopTimer.stop();
 
+                //shoot
             } else if (allBoolMove[1][5] && count == 25) {
 
                 stopMoving();
                 reset(1, 5);
                 stopTimer.stop();
 
+                //super
             } else if (allBoolMove[0][3] && count == 30) {
 
                 stopMoving();
@@ -153,8 +157,18 @@ public class Wizard extends Player {
 
             for (int i = 0; i < allBulltes.size(); i++) {
 
-                allBulltes.get(i).moveHorizon(20);
-                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= World.width) {
+                if (whichPlayerNum == 1) {
+
+                    allBulltes.get(i).moveHorizon(20);
+
+                } else if (whichPlayerNum == 2) {
+
+                    allBulltes.get(i).moveHorizon(-20);
+
+                }
+
+
+                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width) {
 
                     Main.frame.remove(allBulltes.get(i));
 
@@ -196,6 +210,8 @@ public class Wizard extends Player {
         allPic[3][3] = LNormWizPunch;
         allPic[3][4] = LNormWizSpin;
         allPic[3][5] = LNormWizShot;
+
+        whichPlayer[0] = true;
 
     }
 

@@ -20,33 +20,35 @@ public class Robot extends Player {
     ImageIcon LNormRobKick = new ImageIcon(getClass().getResource("L_Norm_Rob_Kick_v2.gif"));
     ImageIcon LNormRobSlam = new ImageIcon(getClass().getResource("L_Norm_Rob_Ground_Slam_v2.gif"));
 
-    final int JUMP_HEIGHT = 33;
 
-    Robot(JComponent RootPane, int whichPlayer) {
+    Robot(JComponent RootPane, int whichPlayerNum) {
 
         setRob();
-        setMoveSpeed(8);
+        setMoveSpeed(11);
         setProjectSpeed(20);
 
-        if (whichPlayer == 1) {
+        if (whichPlayerNum == 1) {
 
-            setKeyBindingP1(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+            facing = 0;
+            setKeyBindingP1(RootPane);
 
-        } if (whichPlayer == 2) {
+        } else if (whichPlayerNum == 2) {
 
-            setKeyBindingP2(RootPane);//TODO: setKeyBindingP1 is for P1, adjust later to accommodate for P2 listener
+            facing = 2;
+            setKeyBindingP2(RootPane);
 
         }
 
-        icon.setIcon(RNormRobStat);
-        icon.setBounds(400, World.height - RNormRobStat.getIconHeight() - commonFloor, RNormRobStat.getIconWidth(), RNormRobStat.getIconHeight());
 
+        icon.setIcon(LNormRobStat);
+        icon.setBounds(FightClub.width - LNormRobStat.getIconWidth() - 30, FightClub.height - LNormRobStat.getIconHeight() - commonFloor, LNormRobStat.getIconWidth(), LNormRobStat.getIconHeight());
 
 
         //method for what to do in move timer from super class
         moveAct(10, e -> {
 
             outOfBounds();
+
             //if pressed D
             if (allBoolMove[1][2]) {
 
@@ -99,7 +101,7 @@ public class Robot extends Player {
 
             }
 
-            if (icon.getLocation().y >= World.height - icon.getHeight() - commonFloor) {
+            if (icon.getLocation().y >= FightClub.height - icon.getHeight() - commonFloor) {
 
                 atTop = false;
                 reset(0, 1);
@@ -113,25 +115,33 @@ public class Robot extends Player {
 
         stopAct(10, e -> {
 
+            //punch
             if (allBoolMove[1][3] && count == 18) {
 
                 stopMoving();
                 reset(1, 3);
                 stopTimer.stop();
 
+                //kick
             } else if (allBoolMove[1][4] && count == 18) {
 
-                icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
+                if (whichPlayer[0]) {
+
+                    icon.setLocation(icon.getLocation().x, icon.getY() - spinDown);
+
+                }
                 stopMoving();
                 reset(1, 4);
                 stopTimer.stop();
 
+                //shoot
             } else if (allBoolMove[1][5] && count == 25) {
 
                 stopMoving();
                 reset(1, 5);
                 stopTimer.stop();
 
+                //super
             } else if (allBoolMove[0][3] && count == 30) {
 
                 stopMoving();
@@ -149,8 +159,18 @@ public class Robot extends Player {
 
             for (int i = 0; i < allBulltes.size(); i++) {
 
-                allBulltes.get(i).moveHorizon(20);
-                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= World.width) {
+                if (whichPlayerNum == 1) {
+
+                    allBulltes.get(i).moveHorizon(20);
+
+                } else if (whichPlayerNum == 2) {
+
+                    allBulltes.get(i).moveHorizon(-20);
+
+                }
+
+
+                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width) {
 
                     Main.frame.remove(allBulltes.get(i));
 
@@ -160,17 +180,14 @@ public class Robot extends Player {
             }
 
 
-
         });
 
 
         movementTimer.start();
 
 
-
-
-
     }
+
 
     void setRob() {
 
@@ -192,8 +209,9 @@ public class Robot extends Player {
         allPic[3][4] = LNormRobKick;
         allPic[3][5] = LNormRobShot;
 
-    }
+        whichPlayer[1] = true;
 
+    }
 
 
 }

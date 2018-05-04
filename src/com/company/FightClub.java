@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class World extends JFrame {
+public class FightClub extends JFrame {
 
     static int width = 1300;
     static int height = 700;
@@ -15,7 +15,7 @@ public class World extends JFrame {
     Player wiz = new Wizard(getRootPane(), 1);
     Player rob = new Robot(getRootPane(), 2);
 
-    public World() {
+    public FightClub() {
 
         setSize(width, height);
         setLayout(null);
