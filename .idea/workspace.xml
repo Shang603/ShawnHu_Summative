@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0e9aaa24-0238-4bcc-b483-b1f00ec2a0d7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Projectile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Projectile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Wizard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/World.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,15 +54,19 @@
       <file leaf-file-name="Wizard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="97" column="88" lean-forward="true" selection-start-line="97" selection-start-column="88" selection-end-line="97" selection-end-column="88" />
+            <state relative-caret-position="182">
+              <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
               <folding>
+                <element signature="method#Wizard#0;class#Wizard#0" />
+                <element signature="e#2036#2083#0" />
                 <element signature="e#1949#2370#0" />
+                <element signature="e#2462#3352#0" />
                 <element signature="e#3376#4231#0" />
                 <element signature="e#4370#4600#0" />
                 <element signature="method#setWiz#0;class#Wizard#0" />
                 <element signature="method#setMoveSpeed#0;class#Wizard#0" />
                 <element signature="method#setProjectSpeed#0;class#Wizard#0" />
+                <element signature="method#moveHorizon#0;class#Wizard#0" />
                 <element signature="method#outOfBounds#0;class#Wizard#0" />
               </folding>
             </state>
@@ -75,10 +76,9 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="146">
-              <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
+            <state relative-caret-position="168">
+              <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
               <folding>
-                <element signature="method#Player#0;class#Player#0" />
                 <element signature="e#1030#1133#0" />
                 <element signature="e#1135#1240#0" />
                 <element signature="e#1335#1437#0" />
@@ -86,6 +86,7 @@
                 <element signature="e#1634#1772#0" />
                 <element signature="e#1861#1999#0" />
                 <element signature="e#2090#2318#0" />
+                <element signature="e#2411#2562#0" />
                 <element signature="e#2659#2976#0" />
                 <element signature="method#addKeyBinder#0;class#Player#0" />
                 <element signature="method#addKeyBinder#1;class#Player#0" />
@@ -134,9 +135,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>P1.</find>
-      <find />
+      <find>icon.setLocation(icon.getX(), World.height - RNormWizStat.getIconHeight() - commonFloor)</find>
       <find>whileBoolMove</find>
       <find>isAllBoolTrue</find>
+      <find>system</find>
     </findStrings>
     <replaceStrings>
       <replace>setLocGround(allPic)</replace>
@@ -679,22 +681,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="97" column="88" lean-forward="true" selection-start-line="97" selection-start-column="88" selection-end-line="97" selection-end-column="88" />
-          <folding>
-            <element signature="e#1949#2370#0" />
-            <element signature="e#3376#4231#0" />
-            <element signature="e#4370#4600#0" />
-            <element signature="method#setWiz#0;class#Wizard#0" />
-            <element signature="method#setMoveSpeed#0;class#Wizard#0" />
-            <element signature="method#setProjectSpeed#0;class#Wizard#0" />
-            <element signature="method#outOfBounds#0;class#Wizard#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Projectile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -705,12 +691,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Wizard.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="169" column="18" selection-start-line="169" selection-start-column="18" selection-end-line="169" selection-end-column="18" />
+          <folding>
+            <element signature="method#Wizard#0;class#Wizard#0" />
+            <element signature="e#2036#2083#0" />
+            <element signature="e#1949#2370#0" />
+            <element signature="e#2462#3352#0" />
+            <element signature="e#3376#4231#0" />
+            <element signature="e#4370#4600#0" />
+            <element signature="method#setWiz#0;class#Wizard#0" />
+            <element signature="method#setMoveSpeed#0;class#Wizard#0" />
+            <element signature="method#setProjectSpeed#0;class#Wizard#0" />
+            <element signature="method#moveHorizon#0;class#Wizard#0" />
+            <element signature="method#outOfBounds#0;class#Wizard#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="131" column="30" selection-start-line="131" selection-start-column="30" selection-end-line="131" selection-end-column="30" />
+        <state relative-caret-position="168">
+          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
           <folding>
-            <element signature="method#Player#0;class#Player#0" />
             <element signature="e#1030#1133#0" />
             <element signature="e#1135#1240#0" />
             <element signature="e#1335#1437#0" />
@@ -718,6 +723,7 @@
             <element signature="e#1634#1772#0" />
             <element signature="e#1861#1999#0" />
             <element signature="e#2090#2318#0" />
+            <element signature="e#2411#2562#0" />
             <element signature="e#2659#2976#0" />
             <element signature="method#addKeyBinder#0;class#Player#0" />
             <element signature="method#addKeyBinder#1;class#Player#0" />

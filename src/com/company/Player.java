@@ -51,6 +51,23 @@ public class Player {
 
         });
 
+        //sets the movement block
+        addKeyBinder(RootPane, KeyEvent.VK_S, "Block", e -> {
+
+            if (!isAttacking()) {
+
+                stopMoving();
+                set(1, 1, allPic);
+
+            }
+
+
+        }, e -> {
+
+                reset(1, 1, allPic);
+
+        });
+
         //sets the movement right
         addKeyBinder(RootPane, KeyEvent.VK_D, "MoveRight", e -> {
             if (!isAttacking()) {
@@ -149,7 +166,7 @@ public class Player {
 
         });
 
-        //sets the movement shoot
+        //sets the movement super
         addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
 
             if (!isAttacking() && !isJumping()) {
@@ -251,6 +268,7 @@ public class Player {
     void reset(int w, int h, ImageIcon[][] allPic) {
 
         allBoolMove[w][h] = false;
+        allPic[w][h].getImage().flush();
         count = 0;
 
         if (isAllBoolFalse(allBoolMove)) {
