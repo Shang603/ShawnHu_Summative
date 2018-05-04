@@ -10,10 +10,12 @@ public class FightClub extends JFrame {
     static int height = 700;
 
     JLabel background = new JLabel();
+    Timer direction;
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
-    Player wiz = new Wizard(getRootPane(), 1);
-    Player rob = new Robot(getRootPane(), 2);
+
+    Player P1 = new Wizard(getRootPane(), 1);
+    Player P2 = new Robot(getRootPane(), 2);
 
     public FightClub() {
 
@@ -24,13 +26,32 @@ public class FightClub extends JFrame {
         setDefaultCloseOperation(3);
 
 
+        direction = new Timer(20, e -> {
+
+            if (P1.icon.getX() >= P2.icon.getX() + P2.icon.getWidth()) {
+
+                P1.facing = 2;
+                P2.facing = 0;
+
+            } else if (P2.icon.getX() >= P1.icon.getX() + P1.icon.getWidth()) {
+
+                P1.facing = 0;
+                P2.facing = 2;
+
+            }
+
+        });
+
+
         background.setIcon(imgRescaler(FJap, width, height));
         background.setBounds(0, 0, width, height);
 
 
-        add(wiz.icon);
-        add(rob.icon);
+        add(P1.icon);
+        add(P2.icon);
         add(background);
+
+        direction.start();
 
 
     }

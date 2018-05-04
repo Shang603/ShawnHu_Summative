@@ -157,11 +157,11 @@ public class Wizard extends Player {
 
             for (int i = 0; i < allBulltes.size(); i++) {
 
-                if (whichPlayerNum == 1) {
+                if (facing == 0) {
 
                     allBulltes.get(i).moveHorizon(20);
 
-                } else if (whichPlayerNum == 2) {
+                } else if (facing == 2) {
 
                     allBulltes.get(i).moveHorizon(-20);
 

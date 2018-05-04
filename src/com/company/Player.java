@@ -37,6 +37,7 @@ public class Player {
     int facing = 0;
 
     final int JUMP_HEIGHT = 33;
+    final int ROB_SHOOT = -40;
 
 
     Player() {
@@ -190,7 +191,7 @@ public class Player {
 
                 set(1, 5);
 
-                allBulltes.add(new Projectile(icon,facing));
+                bulletCreation();
 
                 for (int i = projectStart; i < allBulltes.size(); i++) {
 
@@ -336,7 +337,7 @@ public class Player {
 
                 set(1, 5);
 
-                allBulltes.add(new Projectile(icon,facing));
+                bulletCreation();
 
                 for (int i = projectStart; i < allBulltes.size(); i++) {
 
@@ -555,6 +556,20 @@ public class Player {
 
         }
 
+
+    }
+
+    void bulletCreation() {
+
+        if (whichPlayer[0]) {
+
+            allBulltes.add(new Projectile(icon, facing));
+
+        } else if (whichPlayer[1]) {
+
+            allBulltes.add(new Projectile(icon, facing, ROB_SHOOT));
+
+        }
 
     }
 

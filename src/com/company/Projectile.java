@@ -10,12 +10,20 @@ public class Projectile extends JLabel {
 
     ImageIcon[][] allShot = new ImageIcon[3][3];
 
-
     public Projectile(JLabel icon, int facing) {
 
         setShots();
         setIcon(allShot[0][facing]);
         setBounds(icon.getX() + 30, Math.round(icon.getY() + icon.getHeight() / 2), RShot.getIconWidth(), RShot.getIconHeight());
+        setOpaque(false);
+
+    }
+
+    public Projectile(JLabel icon, int facing, int additionalHeight) {
+
+        setShots();
+        setIcon(allShot[0][facing]);
+        setBounds(icon.getX() + 30, Math.round(icon.getY() + icon.getHeight() / 2) + additionalHeight, RShot.getIconWidth(), RShot.getIconHeight());
         setOpaque(false);
 
     }
