@@ -35,6 +35,7 @@ public class Player {
     int lightUp = 600;
 
     int RobKickDistance = 100;
+    int RobPunchDistance = 100;
     int RobShootDistance = 100;
 
     int projectSpeed;
@@ -101,7 +102,6 @@ public class Player {
                     allBulltes.get(i).face = facing;
 
                 }
-
 
 
                 if (allBulltes.get(i).face == 0) {
@@ -394,6 +394,20 @@ public class Player {
         addKeyBinder(RootPane, KeyEvent.VK_J, "P2Hit", e -> {
 
             if (!isAttacking()) {
+
+                if (whichPlayer[1]) {
+
+                    if (facing == 2) {
+
+                        icon.setLocation(icon.getLocation().x - RobKickDistance, icon.getY());
+
+                    } else if (facing == 0) {
+
+                        icon.setLocation(icon.getLocation().x + RobKickDistance, icon.getY());
+
+                    }
+
+                }
 
                 set(1, 3);
                 stopTimer.start();

@@ -83,7 +83,7 @@ public class Robot extends Player {
                 stopTimer.stop();
 
                 //kick
-            } else if (allBoolMove[1][4] && count == 23) {
+            } else if (allBoolMove[1][4] && count == 30) {
 
                 stopMoving();
 
