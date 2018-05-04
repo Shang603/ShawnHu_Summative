@@ -7,8 +7,9 @@ public class Projectile extends JLabel {
 
     ImageIcon RShot = new ImageIcon(getClass().getResource("RShot.gif"));
     ImageIcon LShot = new ImageIcon(getClass().getResource("LShot.gif"));
-
     ImageIcon[][] allShot = new ImageIcon[3][3];
+
+    int face = -1;
 
     public Projectile(JLabel icon, int facing) {
 

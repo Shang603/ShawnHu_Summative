@@ -72,49 +72,6 @@ public class Robot extends Player {
 
         });
 
-        //method for what to do in jumpTimer timer from super class
-        jumpAct(20, e -> {
-
-            if (jumpHeight == 0) {
-
-                atTop = true;
-
-            }
-
-            if (!atTop) {
-
-                icon.setLocation(icon.getX(), icon.getLocation().y - jumpHeight);
-                jumpHeight -= jumpSpeed;
-
-            } else {
-
-                icon.setLocation(icon.getX(), icon.getLocation().y + jumpHeight);
-                jumpHeight += jumpSpeed;
-
-            }
-
-            if (emergencyStop) {
-
-                atTop = false;
-                jumpHeight = JUMP_HEIGHT;
-                emergencyStop = false;
-                jumpTimer.stop();
-
-
-            }
-
-            if (icon.getLocation().y >= FightClub.height - icon.getHeight() - commonFloor) {
-
-                atTop = false;
-                reset(0, 1);
-                jumpHeight = JUMP_HEIGHT;
-                jumpTimer.stop();
-
-            }
-
-
-        });
-
 
         stopAct(10, e -> {
 
@@ -185,34 +142,6 @@ public class Robot extends Player {
             }
 
             count++;
-
-        });
-
-
-        bulletAct(20, e -> {
-
-            for (int i = 0; i < allBulltes.size(); i++) {
-
-                if (whichPlayerNum == 1) {
-
-                    allBulltes.get(i).moveHorizon(projectSpeed);
-
-                } else if (whichPlayerNum == 2) {
-
-                    allBulltes.get(i).moveHorizon(-projectSpeed);
-
-                }
-
-
-                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width) {
-
-                    Main.frame.remove(allBulltes.get(i));
-
-
-                }
-
-            }
-
 
         });
 
