@@ -1,12 +1,12 @@
 package com.company;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Projectile extends JLabel {
 
     ImageIcon RShot = new ImageIcon(getClass().getResource("RShot.gif"));
     ImageIcon LShot = new ImageIcon(getClass().getResource("LShot.gif"));
+    ImageIcon RExplosion = new ImageIcon(getClass().getResource("RExplosion.gif"));
     ImageIcon[][] allShot = new ImageIcon[3][3];
 
     int face = -1;

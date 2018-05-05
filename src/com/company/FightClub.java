@@ -11,6 +11,7 @@ public class FightClub extends JFrame {
 
     JLabel background = new JLabel();
     Timer direction;
+    Timer collision;
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
 
@@ -42,6 +43,17 @@ public class FightClub extends JFrame {
 
         });
 
+        collision = new Timer(20, e -> {
+
+            if (hitProjectile(P1, P2)) {
+
+                P2.stopMoving();
+                P2.moveHorizon(10);
+
+            }
+
+        });
+
 
         background.setIcon(imgRescaler(FJap, width, height));
         background.setBounds(0, 0, width, height);
@@ -51,10 +63,13 @@ public class FightClub extends JFrame {
         add(P2.icon);
         add(background);
 
+
+        collision.start();
         direction.start();
 
 
     }
+
 
     //resize images to correct size
     ImageIcon imgRescaler(ImageIcon img, int w, int h) {
@@ -63,6 +78,27 @@ public class FightClub extends JFrame {
         Image tempImg = img.getImage();
         ImageIcon tempFinal = new ImageIcon(tempImg.getScaledInstance(w, h, Image.SCALE_DEFAULT));
         return tempFinal;
+
+    }
+
+    boolean hitProjectile(Player a, Player b) {
+
+        for (Projectile x : a.allBulltes) {
+
+            if (x.getBounds().intersects(b.icon.getBounds())) {
+
+                x.setIcon(x.RExplosion);
+                x.RExplosion.getImage().flush();
+                x.face = -10;
+                return true;
+
+            }
+
+
+        }
+
+        return false;
+
 
     }
 
