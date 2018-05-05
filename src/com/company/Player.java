@@ -115,15 +115,11 @@ public class Player {
                 }
 
 
-                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width) {
+                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width || allBulltes.get(i).getX() <= 0) {
 
-                    Main.frame.remove(allBulltes.get(i));
-
-
-                } else if (allBulltes.get(i).getX() <= 0) {
-
-                    Main.frame.remove(allBulltes.get(i));
-
+                    System.out.println(true);
+                    allBulltes.get(i).remove();
+                    allBulltes.remove(i);
 
                 }
 

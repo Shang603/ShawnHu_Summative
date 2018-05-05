@@ -47,8 +47,7 @@ public class FightClub extends JFrame {
 
             if (hitProjectile(P1, P2)) {
 
-                P2.stopMoving();
-                P2.moveHorizon(10);
+                P2.moveHorizon(40);
 
             }
 
@@ -88,8 +87,10 @@ public class FightClub extends JFrame {
             if (x.getBounds().intersects(b.icon.getBounds())) {
 
                 x.setIcon(x.RExplosion);
-                x.RExplosion.getImage().flush();
-                x.face = -10;
+                x.face = -2;
+                a.allBulltes.remove(x);
+                x.explosionTimer.start();
+
                 return true;
 
             }
