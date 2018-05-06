@@ -52,11 +52,11 @@ public class Robot extends Player {
 
                 }else if (whichPlayer[1]) {
 
-                    if (facing == 2) {
+                    if (facingLeft()) {
 
                         icon.setLocation(icon.getLocation().x + RobKickDistance, icon.getY());
 
-                    } else if (facing == 0) {
+                    } else if (facingRight()) {
 
                         icon.setLocation(icon.getLocation().x - RobKickDistance, icon.getY());
 
@@ -75,11 +75,11 @@ public class Robot extends Player {
 
                 if (whichPlayer[1]) {
 
-                    if (facing == 2) {
+                    if (facingLeft()) {
 
                         icon.setLocation(icon.getLocation().x + RobShootDistance, icon.getY());
 
-                    } else if (facing == 0) {
+                    } else if (facingRight()) {
 
                         icon.setLocation(icon.getLocation().x - RobShootDistance, icon.getY());
 

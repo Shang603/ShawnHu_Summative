@@ -72,6 +72,22 @@ public class Projectile extends JLabel {
 
     }
 
+    void setExplosion() {
+
+        if (face == 0) {
+
+            setIcon(RExplosion);
+
+        } else if (face == 2) {
+
+            setIcon(LExplosion);
+
+        }
+
+
+
+    }
+
     void setShots() {
 
         allShot[0][0] = RShot;

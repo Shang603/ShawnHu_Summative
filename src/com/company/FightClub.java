@@ -61,6 +61,7 @@ public class FightClub extends JFrame {
             }
 
 
+
         });
 
 
@@ -97,19 +98,9 @@ public class FightClub extends JFrame {
 
             if (x.getBounds().intersects(b.icon.getBounds())) {
 
-                if (x.face == 0) {
-
-                    x.setIcon(x.RExplosion);
-
-                } else if (x.face == 2) {
-
-                    x.setIcon(x.LExplosion);
-
-                }
-
+                x.setExplosion();
                 x.face = -2;
                 x.explosionTimer.start();
-
                 return true;
 
             }

@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class Player {
 
 
-
     int commonFloor = 45;
 
     boolean atTop = false;
@@ -48,7 +47,7 @@ public class Player {
     final int JUMP_HEIGHT = 44;
     final int ROB_SHOOT = -40;
 
-    Bar hpMagic = new Bar();
+    Bar hpMagic = new Bar();//TODO: fix this
 
 
     Player() {
@@ -158,7 +157,50 @@ public class Player {
 
     }
 
-    void setWhichPlayer(int whichPlayerNum,JComponent RootPane) {
+    void setMotionBack(int a, int b, int c) {
+
+        if (whichPlayer[0]) {
+
+            setBack(a);
+
+        } else if (whichPlayer[1]) {
+
+            setBack(b);
+
+        }else if (whichPlayer[2]) {
+
+            setBack(c);
+
+        }
+
+    }
+
+    boolean facingLeft() {
+
+        if (facing == 2) {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    boolean facingRight() {
+
+        if (facing == 0) {
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+
+    void setWhichPlayer(int whichPlayerNum, JComponent RootPane) {
 
 
         if (whichPlayerNum == 1) {
@@ -197,15 +239,15 @@ public class Player {
 
     }
 
-    void setBack(int HITBACK) {
+    void setBack(int a) {
 
         if (facing == 2) {
 
-            moveHorizon(HITBACK);
+            moveHorizon(a);
 
         } else if (facing == 0) {
 
-            moveHorizon(-HITBACK);
+            moveHorizon(-a);
 
         }
 

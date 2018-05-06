@@ -10,17 +10,34 @@ public class Bar extends JLabel {
     ImageIcon RWizFace = new ImageIcon(getClass().getResource("RWizFace.png"));
     ImageIcon LWizFace = new ImageIcon(getClass().getResource("LWizFace.png"));
 
+    ImageIcon RobFace = new ImageIcon(getClass().getResource("RobFace.png"));
+
     JLabel mugshot = new JLabel();
 
-    public Bar() {
+    public Bar(int whichPlayerNum, boolean[] whichPlayer) {
 
-        setBounds(0,0,RBar.getIconWidth(),RBar.getIconHeight());
-        setIcon(RBar);
+
         setOpaque(false);
 
-        mugshot.setBounds(0,0,RBar.getIconWidth(),RBar.getIconHeight());
-        mugshot.setIcon(RWizFace);
-        mugshot.setOpaque(false);
+        if (whichPlayerNum == 1) {
+
+            setBounds(0, 0, RBar.getIconWidth(), RBar.getIconHeight());
+            setIcon(RBar);
+
+            mugshot.setBounds(0, 0, RWizFace.getIconWidth(), RWizFace.getIconHeight());
+            mugshot.setIcon(RWizFace);
+            mugshot.setOpaque(false);
+
+        } else if (whichPlayerNum == 2) {
+
+            setBounds(FightClub.width - LBar.getIconWidth(), 0, LBar.getIconWidth(), LBar.getIconHeight());
+            setIcon(RBar);
+
+            mugshot.setBounds(FightClub.width - LBar.getIconWidth(), 0, RBar.getIconWidth(), RBar.getIconHeight());
+            mugshot.setIcon(RWizFace);
+            mugshot.setOpaque(false);
+
+        }
 
         add(mugshot);
 
