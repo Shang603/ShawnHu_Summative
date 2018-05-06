@@ -33,8 +33,8 @@ public class Bar extends JLabel {
             setBounds(FightClub.width - LBar.getIconWidth(), 0, LBar.getIconWidth(), LBar.getIconHeight());
             setIcon(RBar);
 
-            mugshot.setBounds(FightClub.width - LBar.getIconWidth(), 0, RBar.getIconWidth(), RBar.getIconHeight());
-            mugshot.setIcon(RWizFace);
+            mugshot.setBounds(0, 0, RobFace.getIconWidth(), RobFace.getIconHeight());
+            mugshot.setIcon(RobFace);
             mugshot.setOpaque(false);
 
         }

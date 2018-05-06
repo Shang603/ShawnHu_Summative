@@ -47,7 +47,7 @@ public class Player {
     final int JUMP_HEIGHT = 44;
     final int ROB_SHOOT = -40;
 
-    Bar hpMagic = new Bar();//TODO: fix this
+    Bar hpMagic = new Bar(1,whichPlayer);//TODO: fix this
 
 
     Player() {
