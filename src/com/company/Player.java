@@ -48,8 +48,7 @@ public class Player {
     final int JUMP_HEIGHT = 44;
     final int ROB_SHOOT = -40;
 
-    Bar wiz = new Bar();
-
+    Bar hpMagic = new Bar();
 
 
     Player() {
@@ -57,7 +56,30 @@ public class Player {
 
         stopMoving();
 
-        //method for what to do in jumpTimer timer from super class
+        moveAct(10, e -> {
+
+            outOfBounds();
+            //if pressed D
+            if (allBoolMove[1][2]) {
+
+                //move right
+                moveHorizon(moveSpeed);
+                //     set(1,2,allPic);
+
+            }
+
+            //if press A
+            if (allBoolMove[1][0]) {
+
+                //move left
+                moveHorizon(-moveSpeed);
+                //   set(1,0,allPic);
+
+            }
+
+
+        });
+
         jumpAct(20, e -> {
 
             if (jumpHeight == 0) {
@@ -136,6 +158,23 @@ public class Player {
 
     }
 
+    void setWhichPlayer(int whichPlayerNum,JComponent RootPane) {
+
+
+        if (whichPlayerNum == 1) {
+
+            facing = 0;
+            setKeyBindingP1(RootPane);
+
+        } else if (whichPlayerNum == 2) {
+
+            facing = 2;
+            setKeyBindingP2(RootPane);
+
+        }
+
+
+    }
 
     //sets the movementTimer speed
     void setMoveSpeed(int s) {
@@ -158,6 +197,19 @@ public class Player {
 
     }
 
+    void setBack(int HITBACK) {
+
+        if (facing == 2) {
+
+            moveHorizon(HITBACK);
+
+        } else if (facing == 0) {
+
+            moveHorizon(-HITBACK);
+
+        }
+
+    }
 
     void outOfBounds() {
 

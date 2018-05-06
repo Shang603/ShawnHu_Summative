@@ -47,19 +47,19 @@ public class FightClub extends JFrame {
 
         collision = new Timer(20, e -> {
 
-            if (hitProjectile(P1, P2)) {
 
-                if (P2.facing == 2) {
+            if (hitProjectile(P2, P1)) {
 
-                    P2.moveHorizon(HITBACK);
-
-                } else if (P2.facing == 0) {
-
-                    P2.moveHorizon(-HITBACK);
-
-                }
+                P1.setBack(HITBACK);
 
             }
+
+            if (hitProjectile(P1, P2)) {
+
+                P2.setBack(HITBACK);
+
+            }
+
 
         });
 
@@ -68,7 +68,7 @@ public class FightClub extends JFrame {
         background.setBounds(0, 0, width, height);
 
 
-        add(P1.wiz);
+        add(P1.hpMagic);
         add(P1.icon);
         add(P2.icon);
         add(background);

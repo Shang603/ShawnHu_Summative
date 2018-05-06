@@ -22,51 +22,14 @@ public class Wizard extends Player {
     ImageIcon LNormWizSpin = new ImageIcon(getClass().getResource("L_Norm_Wiz_SPin_v1.gif"));
     ImageIcon LNormWizLight = new ImageIcon(getClass().getResource("L_Norm_Wiz_Lightning_v4.gif"));
 
-
     Wizard(JComponent RootPane, int whichPlayerNum) {
 
-        setWiz();
+        setWizPics();
         setInitLoc(whichPlayerNum);
+        setWhichPlayer(whichPlayerNum,RootPane);
         setMoveSpeed(8);
         setProjectSpeed(30);
 
-        if (whichPlayerNum == 1) {
-
-            facing = 0;
-            setKeyBindingP1(RootPane);
-
-        } else if (whichPlayerNum == 2) {
-
-            facing = 2;
-            setKeyBindingP2(RootPane);
-
-        }
-
-
-        //method for what to do in move timer from super class
-        moveAct(10, e -> {
-
-            outOfBounds();
-            //if pressed D
-            if (allBoolMove[1][2]) {
-
-                //move right
-                moveHorizon(moveSpeed);
-                //     set(1,2,allPic);
-
-            }
-
-            //if press A
-            if (allBoolMove[1][0]) {
-
-                //move left
-                moveHorizon(-moveSpeed);
-                //   set(1,0,allPic);
-
-            }
-
-
-        });
 
         stopAct(10, e -> {
 
@@ -131,7 +94,7 @@ public class Wizard extends Player {
     }
 
     //setup pics
-    void setWiz() {
+    void setWizPics() {
 
         //setting pics
         allPic[0][0] = RNormWizStat;

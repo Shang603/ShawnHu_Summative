@@ -25,50 +25,11 @@ public class Robot extends Player {
 
     Robot(JComponent RootPane, int whichPlayerNum) {
 
-        setRob();
+        setRobPics();
+        setWhichPlayer(whichPlayerNum,RootPane);
         setInitLoc(whichPlayerNum);
         setMoveSpeed(11);
         setProjectSpeed(20);
-
-        if (whichPlayerNum == 1) {
-
-            facing = 0;
-            setKeyBindingP1(RootPane);
-
-        } else if (whichPlayerNum == 2) {
-
-            facing = 2;
-            setKeyBindingP2(RootPane);
-
-        }
-
-
-
-        //method for what to do in move timer from super class
-        moveAct(10, e -> {
-
-            outOfBounds();
-
-            //if pressed D
-            if (allBoolMove[1][2]) {
-
-                //move right
-                moveHorizon(moveSpeed);
-                //     set(1,2,allPic);
-
-            }
-
-            //if press A
-            if (allBoolMove[1][0]) {
-
-                //move left
-                moveHorizon(-moveSpeed);
-                //   set(1,0,allPic);
-
-            }
-
-
-        });
 
 
         stopAct(10, e -> {
@@ -166,7 +127,7 @@ public class Robot extends Player {
 
     }
 
-    void setRob() {
+    void setRobPics() {
 
         allPic[0][0] = RNormRobStat;
         allPic[0][1] = RNormRobJump;
