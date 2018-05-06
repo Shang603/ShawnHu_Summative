@@ -24,7 +24,7 @@ public class Wizard extends Player {
 
     Wizard(JComponent RootPane, int whichPlayerNum) {
 
-        setWizPics();
+        setWizPics(whichPlayerNum);
         setInitLoc(whichPlayerNum);
         setWhichPlayer(whichPlayerNum,RootPane);
         setMoveSpeed(8);
@@ -92,7 +92,7 @@ public class Wizard extends Player {
     }
 
     //setup pics
-    void setWizPics() {
+    void setWizPics(int whichPlayerNum) {
 
         //setting pics
         allPic[0][0] = RNormWizStat;
@@ -120,6 +120,7 @@ public class Wizard extends Player {
         icon.setBounds(0, FightClub.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
         whichPlayer[0] = true;
+        hpMagic = new Bar(whichPlayerNum, whichPlayer);
 
     }
 

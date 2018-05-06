@@ -70,6 +70,7 @@ public class FightClub extends JFrame {
 
 
         add(P1.hpMagic);
+        add(P2.hpMagic);
         add(P1.icon);
         add(P2.icon);
         add(background);

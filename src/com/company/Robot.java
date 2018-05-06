@@ -25,7 +25,7 @@ public class Robot extends Player {
 
     Robot(JComponent RootPane, int whichPlayerNum) {
 
-        setRobPics();
+        setRobPics(whichPlayerNum);
         setWhichPlayer(whichPlayerNum,RootPane);
         setInitLoc(whichPlayerNum);
         setMoveSpeed(11);
@@ -127,7 +127,7 @@ public class Robot extends Player {
 
     }
 
-    void setRobPics() {
+    void setRobPics(int whichPlayerNum) {
 
         allPic[0][0] = RNormRobStat;
         allPic[0][1] = RNormRobJump;
@@ -150,6 +150,8 @@ public class Robot extends Player {
         allPic[3][5] = LNormRobShot;
 
         whichPlayer[1] = true;
+        hpMagic = new Bar(whichPlayerNum, whichPlayer);
+
 
     }
 
