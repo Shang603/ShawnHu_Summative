@@ -1,12 +1,15 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 public class Player {
+
+
 
     int commonFloor = 45;
 
@@ -45,15 +48,18 @@ public class Player {
     final int JUMP_HEIGHT = 44;
     final int ROB_SHOOT = -40;
 
+    Bar wiz = new Bar();
+
+
 
     Player() {
+
 
         stopMoving();
 
         //method for what to do in jumpTimer timer from super class
         jumpAct(20, e -> {
 
-            System.out.println(jumpHeight);
             if (jumpHeight == 0) {
 
                 atTop = true;

@@ -17,8 +17,8 @@ public class FightClub extends JFrame {
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
 
-    Player P1 = new Robot(getRootPane(), 1);
-    Player P2 = new Wizard(getRootPane(), 2);
+    Player P1 = new Wizard(getRootPane(), 1);
+    Player P2 = new Robot(getRootPane(), 2);
 
     public FightClub() {
 
@@ -68,6 +68,7 @@ public class FightClub extends JFrame {
         background.setBounds(0, 0, width, height);
 
 
+        add(P1.wiz);
         add(P1.icon);
         add(P2.icon);
         add(background);
