@@ -116,7 +116,7 @@ public class Player {
                 }
 
 
-                if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width || allBulltes.get(i).getX() <= 0) {
+                if (allBulltes.get(i).getX() >= FightClub.width || allBulltes.get(i).getX() <= -allBulltes.get(i).getWidth()) {
 
                     allBulltes.get(i).remove();
 
@@ -314,7 +314,7 @@ public class Player {
         //sets the movement block
         addKeyBinder(RootPane, KeyEvent.VK_DOWN, "P2Block", e -> {
 
-            if (!isAttacking()) {
+            if (!isAttacking() && !isJumping()) {
 
                 stopMoving();
                 set(1, 1);
@@ -324,7 +324,11 @@ public class Player {
 
         }, e -> {
 
-            reset(1, 1);
+            if (!isAttacking() && !isJumping()) {
+
+                reset(1, 1);
+
+            }
 
         });
 
