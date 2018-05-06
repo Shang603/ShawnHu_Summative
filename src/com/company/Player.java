@@ -199,6 +199,11 @@ public class Player {
 
     }
 
+    void setJumpHeight(int a, int b) {
+
+
+
+    }
 
     void setWhichPlayer(int whichPlayerNum, JComponent RootPane) {
 
