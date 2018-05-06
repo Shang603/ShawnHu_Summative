@@ -26,6 +26,7 @@ public class Robot extends Player {
     Robot(JComponent RootPane, int whichPlayerNum) {
 
         setRob();
+        setInitLoc(whichPlayerNum);
         setMoveSpeed(11);
         setProjectSpeed(20);
 
@@ -41,9 +42,6 @@ public class Robot extends Player {
 
         }
 
-
-        icon.setIcon(LNormRobStat);
-        icon.setBounds(FightClub.width - LNormRobStat.getIconWidth() - 30, FightClub.height - LNormRobStat.getIconHeight() - commonFloor, LNormRobStat.getIconWidth(), LNormRobStat.getIconHeight());
 
 
         //method for what to do in move timer from super class
@@ -151,6 +149,22 @@ public class Robot extends Player {
 
     }
 
+    void setInitLoc(int whichPlayerNum) {
+
+        if (whichPlayerNum == 1) {
+
+            icon.setIcon(RNormRobStat);
+            icon.setBounds(0, FightClub.height - RNormRobStat.getIconHeight() - commonFloor, RNormRobStat.getIconWidth(), RNormRobStat.getIconHeight());
+
+
+        } else if (whichPlayerNum == 2) {
+
+            icon.setIcon(LNormRobStat);
+            icon.setBounds(FightClub.width - LNormRobStat.getIconWidth() - 30, FightClub.height - LNormRobStat.getIconHeight() - commonFloor, LNormRobStat.getIconWidth(), LNormRobStat.getIconHeight());
+
+        }
+
+    }
 
     void setRob() {
 

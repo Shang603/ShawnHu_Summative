@@ -8,6 +8,7 @@ public class Projectile extends JLabel {
     ImageIcon RShot = new ImageIcon(getClass().getResource("RShot.gif"));
     ImageIcon LShot = new ImageIcon(getClass().getResource("LShot.gif"));
     ImageIcon RExplosion = new ImageIcon(getClass().getResource("RExplosion.gif"));
+    ImageIcon LExplosion = new ImageIcon(getClass().getResource("LExplosion.gif"));
     ImageIcon[][] allShot = new ImageIcon[3][3];
 
     int face = -1;
@@ -28,6 +29,7 @@ public class Projectile extends JLabel {
 
                 count = 0;
                 RExplosion.getImage().flush();
+                LExplosion.getImage().flush();
                 remove();
                 explosionTimer.stop();
 
@@ -45,6 +47,22 @@ public class Projectile extends JLabel {
         setIcon(allShot[0][facing]);
         setBounds(icon.getX() + 30, Math.round(icon.getY() + icon.getHeight() / 2) + additionalHeight, RShot.getIconWidth(), RShot.getIconHeight());
         setOpaque(false);
+
+        explosionAct(20, e -> {
+
+            if (count == 4) {
+
+                count = 0;
+                RExplosion.getImage().flush();
+                LExplosion.getImage().flush();
+                remove();
+                explosionTimer.stop();
+
+            }
+
+            count++;
+
+        });
 
     }
 
@@ -74,6 +92,7 @@ public class Projectile extends JLabel {
 
     void remove() {
 
+     //   face = -2;
         setLocation(200,2000);
 
     }

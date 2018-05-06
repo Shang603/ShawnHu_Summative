@@ -26,6 +26,7 @@ public class Wizard extends Player {
     Wizard(JComponent RootPane, int whichPlayerNum) {
 
         setWiz();
+        setInitLoc(whichPlayerNum);
         setMoveSpeed(8);
         setProjectSpeed(30);
 
@@ -40,10 +41,6 @@ public class Wizard extends Player {
             setKeyBindingP2(RootPane);
 
         }
-
-
-        icon.setIcon(RNormWizStat);
-        icon.setBounds(0, FightClub.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
 
         //method for what to do in move timer from super class
@@ -116,6 +113,22 @@ public class Wizard extends Player {
 
     }
 
+    void setInitLoc(int whichPlayerNum) {
+
+        if (whichPlayerNum == 1) {
+
+            icon.setIcon(RNormWizStat);
+            icon.setBounds(0, FightClub.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
+
+
+        } else if (whichPlayerNum == 2) {
+
+            icon.setIcon(LNormWizStat);
+            icon.setBounds(FightClub.width - LNormWizStat.getIconWidth() - 30, FightClub.height - LNormWizStat.getIconHeight() - commonFloor, LNormWizStat.getIconWidth(), LNormWizStat.getIconHeight());
+
+        }
+
+    }
 
     //setup pics
     void setWiz() {
@@ -140,6 +153,10 @@ public class Wizard extends Player {
         allPic[3][3] = LNormWizPunch;
         allPic[3][4] = LNormWizSpin;
         allPic[3][5] = LNormWizShot;
+
+
+        icon.setIcon(RNormWizStat);
+        icon.setBounds(0, FightClub.height - RNormWizStat.getIconHeight() - commonFloor, RNormWizStat.getIconWidth(), RNormWizStat.getIconHeight());
 
         whichPlayer[0] = true;
 

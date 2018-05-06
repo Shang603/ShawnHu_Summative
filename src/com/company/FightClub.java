@@ -9,14 +9,16 @@ public class FightClub extends JFrame {
     static int width = 1300;
     static int height = 700;
 
+    final int HITBACK = 20;
+
     JLabel background = new JLabel();
     Timer direction;
     Timer collision;
 
     ImageIcon FJap = new ImageIcon(getClass().getResource("japanese town.gif"));
 
-    Player P1 = new Wizard(getRootPane(), 1);
-    Player P2 = new Robot(getRootPane(), 2);
+    Player P1 = new Robot(getRootPane(), 1);
+    Player P2 = new Wizard(getRootPane(), 2);
 
     public FightClub() {
 
@@ -47,7 +49,15 @@ public class FightClub extends JFrame {
 
             if (hitProjectile(P1, P2)) {
 
-                P2.moveHorizon(40);
+                if (P2.facing == 2) {
+
+                    P2.moveHorizon(HITBACK);
+
+                } else if (P2.facing == 0) {
+
+                    P2.moveHorizon(-HITBACK);
+
+                }
 
             }
 
@@ -86,9 +96,17 @@ public class FightClub extends JFrame {
 
             if (x.getBounds().intersects(b.icon.getBounds())) {
 
-                x.setIcon(x.RExplosion);
+                if (x.face == 0) {
+
+                    x.setIcon(x.RExplosion);
+
+                } else if (x.face == 2) {
+
+                    x.setIcon(x.LExplosion);
+
+                }
+
                 x.face = -2;
-                a.allBulltes.remove(x);
                 x.explosionTimer.start();
 
                 return true;

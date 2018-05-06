@@ -26,8 +26,8 @@ public class Player {
     Timer stopTimer;
     Timer bulletTimer;
 
-    int jumpHeight = 33;
-    int jumpSpeed = 3;
+    int jumpHeight;
+    int jumpSpeed = 4;
     int moveSpeed;
     int count = 0;
 
@@ -42,7 +42,7 @@ public class Player {
     int projectStart = 0;
     int facing = 0;
 
-    final int JUMP_HEIGHT = 33;
+    final int JUMP_HEIGHT = 44;
     final int ROB_SHOOT = -40;
 
 
@@ -53,6 +53,7 @@ public class Player {
         //method for what to do in jumpTimer timer from super class
         jumpAct(20, e -> {
 
+            System.out.println(jumpHeight);
             if (jumpHeight == 0) {
 
                 atTop = true;
@@ -117,9 +118,7 @@ public class Player {
 
                 if (allBulltes.get(i).getX() + allBulltes.get(i).getWidth() >= FightClub.width || allBulltes.get(i).getX() <= 0) {
 
-                    System.out.println(true);
                     allBulltes.get(i).remove();
-                    allBulltes.remove(i);
 
                 }
 
@@ -152,6 +151,7 @@ public class Player {
         icon.setLocation(icon.getLocation().x + m, icon.getY());
 
     }
+
 
     void outOfBounds() {
 
@@ -235,9 +235,10 @@ public class Player {
         //sets the movement up
         addKeyBinder(RootPane, KeyEvent.VK_W, "P1Jump", e -> {
 
-            if (!isAttacking()) {
+            if (!isAttacking() && !isJumping()) {
 
                 set(0, 1);
+                jumpHeight = JUMP_HEIGHT;
                 jumpTimer.start();
 
             }
@@ -275,16 +276,7 @@ public class Player {
             if (!isAttacking()) {
 
                 set(1, 5);
-
                 bulletCreation();
-
-                for (int i = projectStart; i < allBulltes.size(); i++) {
-
-                    Main.frame.add(allBulltes.get(i), 0);
-
-                }
-
-                ++projectStart;
                 bulletTimer.start();
                 stopTimer.start();
 
@@ -293,7 +285,7 @@ public class Player {
         });
 
         //sets the movement super
-        addKeyBinder(RootPane, KeyEvent.VK_R, "P1Lightning", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_R, "P1Super", e -> {
 
             if (!isAttacking() && !isJumping()) {
 
@@ -377,9 +369,10 @@ public class Player {
         //sets the movement up
         addKeyBinder(RootPane, KeyEvent.VK_UP, "P2Jump", e -> {
 
-            if (!isAttacking()) {
+            if (!isAttacking() && !isJumping()) {
 
                 set(0, 1);
+                jumpHeight = JUMP_HEIGHT;
                 jumpTimer.start();
 
             }
@@ -413,7 +406,7 @@ public class Player {
         });
 
         //sets the movement kick
-        addKeyBinder(RootPane, KeyEvent.VK_K, "Kick", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_K, "P2Kick", e -> {
 
             if (!isAttacking() && !atTop) {
 
@@ -443,35 +436,12 @@ public class Player {
         });
 
         //sets the movement shoot
-        addKeyBinder(RootPane, KeyEvent.VK_L, "Shoot", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_L, "P2Shoot", e -> {
 
             if (!isAttacking()) {
 
                 set(1, 5);
-
-                if (whichPlayer[1]) {
-
-                    if (facing == 2) {
-
-                        icon.setLocation(icon.getLocation().x - RobShootDistance, icon.getY());
-
-                    } else if (facing == 0) {
-
-                        icon.setLocation(icon.getLocation().x + RobShootDistance, icon.getY());
-
-                    }
-
-                }
-
                 bulletCreation();
-
-                for (int i = projectStart; i < allBulltes.size(); i++) {
-
-                    Main.frame.add(allBulltes.get(i), 0);
-
-                }
-
-                ++projectStart;
                 bulletTimer.start();
                 stopTimer.start();
 
@@ -480,7 +450,7 @@ public class Player {
         });
 
         //sets the movement super
-        addKeyBinder(RootPane, KeyEvent.VK_U, "Lightning", e -> {
+        addKeyBinder(RootPane, KeyEvent.VK_U, "P2Super", e -> {
 
             if (!isAttacking() && !isJumping()) {
 
@@ -691,11 +661,15 @@ public class Player {
 
             allBulltes.add(new Projectile(icon, facing));
 
+
         } else if (whichPlayer[1]) {
 
             allBulltes.add(new Projectile(icon, facing, ROB_SHOOT));
 
         }
+
+        Main.frame.add(allBulltes.get(projectStart), 0);
+        ++projectStart;
 
     }
 
